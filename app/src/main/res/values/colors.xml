@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Home">#8FAFCA</color>
+    <color name="your_hint_color">#009688</color>
+    <color name="lavender">#8692f7</color>
+</resources>

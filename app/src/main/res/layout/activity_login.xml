@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white"
+    tools:context=".Login_Activity">
+
+    <!-- Profile Image -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image_profile"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/house_rent"
+        android:layout_gravity="center"
+        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rent Rover"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:textStyle="italic" />
+
+    <!-- Login Header -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#44A4E3"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="5dp"
+        android:text="Login to your account" />
+
+    <!--  (Email) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_layout"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="15dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/white"
+        app:boxStrokeColor="@color/your_hint_color"
+        app:hintTextColor="#4540F4">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:textSize="15sp"
+            android:drawableStart="@drawable/email_ic"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Password Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="5dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/white"
+        app:boxStrokeColor="@color/your_hint_color"
+        app:hintTextColor="#4540F4"
+        app:endIconMode="password_toggle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:textSize="15sp"
+            android:drawableStart="@drawable/password_ic"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Remember Me and Forgot Password -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="25dp">
+
+        <CheckBox
+            android:id="@+id/login_password_show_hide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:text="Remember me"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/forgot_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Forgot Password?"
+            android:textColor="#2F62F4"
+            android:gravity="end"
+            android:textStyle="italic"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/custom_button" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="35dp"
+        android:background="#D2D2D2"
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="70dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- OR Text -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="or login with"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textStyle="italic" />
+
+    <!-- Google Sign-In Button -->
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google_sign_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_gravity="center"
+        app:buttonSize="wide" />
+
+    <!-- Register Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/don_t_have_an_account"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:layout_marginEnd="8dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_a_new_account"
+            android:textColor="#2F62F4"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+</LinearLayout>
