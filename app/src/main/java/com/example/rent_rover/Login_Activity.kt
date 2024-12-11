@@ -87,9 +87,9 @@ class Login_Activity : AppCompatActivity() {
             Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
 
             // Navigate to next activity after login
-//           val intent = Intent(this, HomeActivity::class.java)  // Replace with actual next activity
-//           startActivity(intent)
-//          finish() // Close login activity to prevent back navigation
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish() // Close login activity to prevent back navigation
         }
 
     }
