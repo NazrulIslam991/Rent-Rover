@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rent Rover"
+        android:text="Rent Rover "
         android:textSize="15sp"
         android:textAlignment="center"
         android:textStyle="italic" />
@@ -88,6 +88,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="Password"
+            android:padding="20dp"
             android:textSize="15sp"
             android:drawableStart="@drawable/password_ic"
             android:drawablePadding="8dp"
