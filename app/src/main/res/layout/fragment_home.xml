@@ -1,18 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingTop="15dp"
     tools:context=".HomeFragment">
 
-    <TextView
+    <!-- Material Search Bar -->
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        style="@style/MaterialSearchBarLight"
+        app:mt_speechMode="true"
+        app:mt_hint="Search a product..."
+        app:mt_placeholder="Search..."
+        app:mt_maxSuggestionsCount="5"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:text="hello_Home_fragment" />
+        android:layout_height="wrap_content"
+        app:mt_searchBarColor="#DEE0E4"
+        app:mt_navIconEnabled="true"
+        app:mt_textColor="@color/black"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
 
-</FrameLayout>
+        android:layout_marginBottom="10dp"
+        android:id="@+id/searchBar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home fragment"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_centerInParent="true" />
+</RelativeLayout>
