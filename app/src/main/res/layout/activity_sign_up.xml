@@ -107,6 +107,7 @@
         app:boxStrokeColor="@color/your_hint_color"
         app:endIconMode="password_toggle"
         app:boxBackgroundMode="outline"
+        app:endIconTint="#4540F4"
         app:hintTextColor="#4540F4">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -135,6 +136,7 @@
         app:boxStrokeColor="@color/your_hint_color"
         app:boxBackgroundMode="outline"
         app:endIconMode="password_toggle"
+        app:endIconTint="#4540F4"
         app:hintTextColor="#4540F4">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -168,17 +170,16 @@
             android:textStyle="italic" />
     </LinearLayout>
 
-    <!-- Login Button -->
+    <!-- signup Button -->
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/signup_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="25dp"
         android:background="@drawable/custom_button"
-        android:backgroundTint="@color/lavender"
-        android:text="login"
+        android:text="signup"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
