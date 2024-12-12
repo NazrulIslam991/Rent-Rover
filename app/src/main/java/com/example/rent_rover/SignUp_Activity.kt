@@ -35,7 +35,7 @@ class SignUp_Activity : AppCompatActivity() {
         emailEditText = findViewById(R.id.email)
         passwordEditText = findViewById(R.id.password)
         confirmPasswordEditText = findViewById(R.id.con_password)
-        signUpButton = findViewById(R.id.login_button)
+        signUpButton = findViewById(R.id.signup_button)
         rememberMeCheckBox = findViewById(R.id.login_password_show_hide)
         loginText = findViewById(R.id.create_account)
 

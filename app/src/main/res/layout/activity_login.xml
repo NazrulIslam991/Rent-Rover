@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#13171A"
+        android:textColor="#4540F4"
         android:textStyle="bold"
         android:textSize="28sp"
         android:gravity="center"
@@ -80,7 +80,9 @@
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="@color/your_hint_color"
         app:hintTextColor="#4540F4"
-        app:endIconMode="password_toggle">
+        android:background="@color/white"
+        app:endIconMode="password_toggle"
+        app:endIconTint="#4540F4">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
