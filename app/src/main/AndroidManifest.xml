@@ -17,9 +17,11 @@
             android:exported="false" />
         <activity
             android:name=".SignUp_Activity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".Login_Activity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
