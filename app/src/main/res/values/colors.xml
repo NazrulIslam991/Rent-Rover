@@ -6,4 +6,6 @@
     <color name="your_hint_color">#009688</color>
     <color name="lavender">#8692f7</color>
     <color name="colorPrimary">#3949AB</color>
+    <color name="lightBlue">#673AB7</color>
+    <color name="lightBlue1">#00AEEF</color>
 </resources>

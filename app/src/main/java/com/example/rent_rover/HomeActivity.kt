@@ -63,8 +63,8 @@ class HomeActivity : AppCompatActivity() {
 
         // Set an OnClickListener for the FloatingActionButton
         addMenuFab.setOnClickListener {
-            //val intent = Intent(this, AddActivity::class.java)
-            //startActivity(intent)
+            val intent = Intent(this, CircularFormActivity::class.java)
+            startActivity(intent)
             Toast.makeText(this, "Floating action bar", Toast.LENGTH_SHORT).show()
         }
     }
