@@ -35,7 +35,72 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"/>
         </LinearLayout>
-    <LinearLayout
+
+
+        <LinearLayout
+            android:id="@+id/image_feild"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/custom_layout"
+            android:elevation="2dp"
+            android:translationZ="2dp"
+            android:translationX="2dp"
+            android:translationY="2dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="12dp">
+
+            <ImageButton
+                android:id="@+id/before"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:src="@drawable/back_ic" />
+
+            <RelativeLayout
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:gravity="center">
+
+                <ImageSwitcher
+                    android:id="@+id/post_image"
+                    android:layout_width="270dp"
+                    android:layout_height="200dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:inAnimation="@android:anim/slide_in_left"
+                    android:outAnimation="@android:anim/slide_out_right" />
+
+                <ImageButton
+                    android:id="@+id/delete_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/delete_ic" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/after"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@color/white"
+                android:src="@drawable/after_ic" />
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -61,10 +126,10 @@
             android:id="@+id/sp_division"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_button"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp"
-            />
+            android:background="@drawable/spinner_border"
+            android:padding="13dp"
+            android:layout_marginBottom="8dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,8 +143,8 @@
             android:id="@+id/sp_district"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_button"
-            android:padding="10dp"
+            android:background="@drawable/spinner_border"
+            android:padding="13dp"
             android:layout_marginBottom="8dp"
             />
         <TextView
@@ -95,8 +160,8 @@
             android:id="@+id/sp_upazilla"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_button"
-            android:padding="10dp"
+            android:background="@drawable/spinner_border"
+            android:padding="13dp"
             android:layout_marginBottom="8dp"
             />
         <TextView
@@ -373,8 +438,8 @@
             android:id="@+id/sp_floorNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_button"
-            android:padding="10dp"
+            android:background="@drawable/spinner_border"
+            android:padding="13dp"
             android:layout_marginBottom="8dp"
             />
     </LinearLayout>
@@ -697,14 +762,6 @@
             android:background="@drawable/custom_button"
             android:layout_marginVertical="30dp"
             />
-
-
-
-
-
-
-
-
 
 
     </LinearLayout>
