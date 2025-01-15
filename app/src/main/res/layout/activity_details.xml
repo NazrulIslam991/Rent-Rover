@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <ImageView
+        android:id="@+id/iv_houseImage"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_gravity="center"
+        android:src="@drawable/img"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_houseType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        android:text="Boys' Hostel"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"
+        />
+    <TextView
+        android:id="@+id/tv_houseAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:text="Block D, Road#31, Sahjajal Upashahar, Sylhet"
+        android:textStyle="normal"
+        android:layout_marginBottom="4dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monthly Rent: "
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_monthlyRent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7500"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BDT"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Floor Area: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7500"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sqrmtr"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Bedrooms: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_bedroom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Bathrooms: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_bathroom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Floor Level: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_floor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Kitchens: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_kitchen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Religion: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_religion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Muslim, Hindu"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other Facilities "
+        android:textStyle="bold"
+        android:orientation="vertical"
+        android:layout_marginBottom="6dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:text="Bike Parking: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_bikeParking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:text="Car Parking: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_carParking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:text="Gas Supply: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_gasSupply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:text="Water Supply: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_waterSupply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:text="Furnished: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_furnished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:text="CCTV: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_CCTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:text="Wifi: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginRight="3dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="25dp"
+        android:padding="0dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="lorem"
+            android:justificationMode="inter_word"
+            android:textStyle="normal"
+            android:layout_marginBottom="0dp"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="25dp"
+        android:padding="0dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01742568923"
+            android:justificationMode="inter_word"
+            android:textStyle="normal"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_sendRequest"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Send Rent Request"
+        />
+
+
+</LinearLayout>
+
+
+</ScrollView>
