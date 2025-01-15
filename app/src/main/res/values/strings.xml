@@ -4,4 +4,7 @@
     <string name="create_a_new_account">Create new account</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">83201506448-k5t9ueu6hrfpa0mbedn6rjkpqfm7fn5g.apps.googleusercontent.com</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_link">Reset Link</string>
 </resources>
