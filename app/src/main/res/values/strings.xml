@@ -2,9 +2,70 @@
     <string name="app_name">Rent_Rover</string>
     <string name="don_t_have_an_account">Don\'t have an Account?</string>
     <string name="create_a_new_account">Create new account</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_web_client_id">83201506448-k5t9ueu6hrfpa0mbedn6rjkpqfm7fn5g.apps.googleusercontent.com</string>
     <string name="reset_password">Reset Password</string>
     <string name="reset_link">Reset Link</string>
+
+    <!-- Add Districts -->
+    <string-array name="district_sylhet">
+        <item>Sylhet</item>
+        <item>Sunamganj</item>
+        <item>Moulvibazar</item>
+        <item>Habiganj</item>
+    </string-array>
+
+    <!-- Add Upazilas for each District -->
+    <string-array name="upazilas_sylhet">
+        <item>Balaganj</item>
+        <item>Beanibazar</item>
+        <item>Bishwanath</item>
+        <item>Companiganj</item>
+        <item>Dakshin Surma</item>
+        <item>Fenchuganj</item>
+        <item>Golapganj</item>
+        <item>Gowainghat</item>
+        <item>Jaintiapur</item>
+        <item>Kanaighat</item>
+        <item>Osmani Nagar</item>
+        <item>Sylhet Sadar</item>
+        <item>Zakiganj</item>
+    </string-array>
+
+    <string-array name="upazilas_sunamganj">
+        <item>Bishwamvarpur</item>
+        <item>Chhatak</item>
+        <item>Shantiganj</item>
+        <item>Derai</item>
+        <item>Dharamapasha</item>
+        <item>Dowarabazar</item>
+        <item>Jagannathpur</item>
+        <item>Jamalganj</item>
+        <item>Sullah</item>
+        <item>Sunamganj Sadar</item>
+        <item>Tahirpur</item>
+        <item>Madhyanagar</item>
+    </string-array>
+
+    <string-array name="upazilas_moulvibazar">
+        <item>Barlekha</item>
+        <item>Kamalganj</item>
+        <item>Kulaura</item>
+        <item>Moulvibazar Sadar</item>
+        <item>Rajnagar</item>
+        <item>Sreemangal</item>
+        <item>Juri</item>
+    </string-array>
+
+    <string-array name="upazilas_habiganj">
+        <item>Ajmiriganj</item>
+        <item>Baniachong</item>
+        <item>Bahubal</item>
+        <item>Chunarughat</item>
+        <item>Habiganj Sadar</item>
+        <item>Lakhai</item>
+        <item>Madhabpur</item>
+        <item>Nabiganj</item>
+        <item>Shaistaganj</item>
+    </string-array>
 </resources>
