@@ -54,8 +54,8 @@
 
             <ImageButton
                 android:id="@+id/before"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:src="@drawable/back_ic" />
 
@@ -66,8 +66,8 @@
 
                 <ImageSwitcher
                     android:id="@+id/post_image"
-                    android:layout_width="250dp"
-                    android:layout_height="250dp"
+                    android:layout_width="270dp"
+                    android:layout_height="200dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
@@ -89,8 +89,8 @@
 
             <ImageButton
                 android:id="@+id/after"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:src="@drawable/after_ic" />
         </LinearLayout>
