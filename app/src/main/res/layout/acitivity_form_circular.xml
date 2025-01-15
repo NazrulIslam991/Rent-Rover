@@ -54,6 +54,7 @@
 
             <ImageButton
                 android:id="@+id/before"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -91,6 +92,7 @@
                 android:id="@+id/after"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:background="@color/white"
                 android:src="@drawable/after_ic" />
         </LinearLayout>
