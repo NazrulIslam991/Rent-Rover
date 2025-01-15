@@ -206,7 +206,7 @@ class Login_Activity : AppCompatActivity() {
         uid?.let {
             usersRef.child(it).setValue(user).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Log.d("RealtimeDatabase", "User details saved successfully")
+                    Log.d("RealtimeDatabase", "successfully")
                 } else {
                     Log.w("RealtimeDatabase", "Failed to save user details", task.exception)
                 }
