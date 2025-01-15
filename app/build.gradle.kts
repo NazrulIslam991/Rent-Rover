@@ -44,7 +44,6 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0")
-    implementation("com.google.android.gms:play-services-base:18.5.0")
     implementation("androidx.activity:activity:1.9.3")
     implementation("com.google.firebase:firebase-auth:23.1.0")
     implementation("com.google.firebase:firebase-database-ktx:21.0.0")
@@ -53,6 +52,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     implementation ("com.github.mancj:MaterialSearchBar:0.8.5")
     implementation ("com.airbnb.android:lottie:5.2.0")
-
-
+    implementation("com.google.android.gms:play-services-auth:21.3.0")
 }

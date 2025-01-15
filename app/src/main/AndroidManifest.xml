@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Rent_Rover"
         tools:targetApi="35">
         <activity
+            android:name=".Reset_Password_activity"
+            android:exported="false" />
+        <activity
             android:name=".CircularFormActivity"
             android:exported="false" />
         <activity
