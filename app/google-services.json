@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "83201506448",
+    "project_id": "rentrover25",
+    "storage_bucket": "rentrover25.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83201506448:android:979823443056995e31ac15",
+        "android_client_info": {
+          "package_name": "com.example.rent_rover"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClQuw3w7Sw5HXgC4A9V58t-wtLi6CFb4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
