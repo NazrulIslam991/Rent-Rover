@@ -2,6 +2,7 @@ package com.example.rent_rover
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
@@ -9,7 +10,16 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.FirebaseDatabase
 
 class Login_Activity : AppCompatActivity() {
 
@@ -19,6 +29,13 @@ class Login_Activity : AppCompatActivity() {
     private lateinit var rememberMeCheckBox: CheckBox
     private lateinit var forgotPasswordText: TextView
     private lateinit var createAccountText: TextView
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var loadingDialog: LoadingDialog
+    private lateinit var googleSignInClient: GoogleSignInClient
+
+    private val RC_SIGN_IN = 100
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +55,29 @@ class Login_Activity : AppCompatActivity() {
         forgotPasswordText = findViewById(R.id.forgot_password)
         createAccountText = findViewById(R.id.create_account)
 
+        // Initialize Firebase Auth
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        // Initialize LoadingDialog
+        loadingDialog = LoadingDialog(this)
+
+
+        // Configure Google Sign-In
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+
+
+        // Google Sign-In button
+        val googleSignInButton: com.google.android.gms.common.SignInButton = findViewById(R.id.google_sign_in_button)
+        googleSignInButton.setOnClickListener {
+            signInWithGoogle()
+        }
+
 
 
         // Set click listeners
@@ -50,6 +90,8 @@ class Login_Activity : AppCompatActivity() {
         forgotPasswordText.setOnClickListener {
             // Handle forgot password logic (perhaps open a dialog or another activity)
             Toast.makeText(this, "Forgot password clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Reset_Password_activity::class.java)
+            startActivity(intent)
         }
 
 
@@ -83,15 +125,92 @@ class Login_Activity : AppCompatActivity() {
             return
         }
         else{
-            // If all validations pass, show success message
-            Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+            // Show loading dialog
+            loadingDialog.show()
+            // Authenticate user with Firebase
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    // Hide loading dialog
+                    loadingDialog.dismiss()
 
-            // Navigate to next activity after login
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-            finish() // Close login activity to prevent back navigation
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                        // Navigate to the HomeActivity or main activity
+                        val intent = Intent(this, HomeActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Login failed", Toast.LENGTH_LONG).show()
+                    }
+                }
         }
 
+    }
+
+
+    private fun signInWithGoogle() {
+        loadingDialog.show()
+        googleSignInClient.signOut().addOnCompleteListener {
+            val signInIntent = googleSignInClient.signInIntent
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+        }
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN) {
+            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+                firebaseAuthWithGoogle(account)
+            } catch (e: ApiException) {
+                loadingDialog.dismiss()
+                Log.w("GoogleSignIn", "Google sign-in failed", e)
+                Toast.makeText(this, "Google Sign-In failed", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(account: GoogleSignInAccount?) {
+        val credential = GoogleAuthProvider.getCredential(account?.idToken, null)
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                loadingDialog.dismiss()
+                if (task.isSuccessful) {
+                    // Sign-in successful, save user details in Realtime Database
+                    val user = firebaseAuth.currentUser
+                    saveUserDetailsToDatabase(user?.uid, user?.displayName, user?.email)
+                    Toast.makeText(this, "Google Sign-In successful", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    finish()
+                } else {
+                    Log.w("FirebaseAuth", "Sign-in failed", task.exception)
+                    Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+
+    private fun saveUserDetailsToDatabase(uid: String?, name: String?, email: String?) {
+        val database = FirebaseDatabase.getInstance()
+        val usersRef = database.getReference("Users")
+        val user = mapOf(
+            "name" to name,
+            "email" to email,
+            "uid" to uid
+        )
+
+        uid?.let {
+            usersRef.child(it).setValue(user).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d("RealtimeDatabase", "successfully")
+                } else {
+                    Log.w("RealtimeDatabase", "Failed to save user details", task.exception)
+                }
+            }
+        }
     }
 
 

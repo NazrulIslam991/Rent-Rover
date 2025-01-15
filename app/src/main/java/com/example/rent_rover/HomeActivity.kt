@@ -99,7 +99,12 @@ class HomeActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle("Exit")
                 .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes") { dialog, _ -> finish() }
+                .setPositiveButton("Yes") { dialog, _ ->
+                    // Finish all activities and close the app
+                    dialog.dismiss()
+                    finishAffinity()
+                    System.exit(0)
+                }
                 .setNegativeButton("No", null)
                 .show()
         }
