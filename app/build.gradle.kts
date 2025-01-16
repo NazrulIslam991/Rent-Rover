@@ -53,4 +53,6 @@ dependencies {
     implementation ("com.github.mancj:MaterialSearchBar:0.8.5")
     implementation ("com.airbnb.android:lottie:5.2.0")
     implementation("com.google.android.gms:play-services-auth:21.3.0")
+
+    implementation ("com.cloudinary:cloudinary-android:3.0.2")
 }
