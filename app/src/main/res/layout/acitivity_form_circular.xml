@@ -89,7 +89,10 @@
 
             <ImageButton
                 android:id="@+id/after"
+<<<<<<< HEAD
                 android:layout_height="wrap_content"
+=======
+>>>>>>> b9ac586bd93c253f930cf695b3358641ce09affc
                 android:layout_width="wrap_content"
                 android:background="@color/white"
                 android:src="@drawable/after_ic"
