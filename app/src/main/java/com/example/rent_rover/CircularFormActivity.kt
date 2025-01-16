@@ -4,16 +4,24 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageSwitcher
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.cloudinary.android.MediaManager
+import com.cloudinary.android.callback.ErrorInfo
+import com.cloudinary.android.callback.UploadCallback
+import com.google.firebase.database.FirebaseDatabase
 
 class CircularFormActivity : AppCompatActivity() {
 
@@ -23,15 +31,61 @@ class CircularFormActivity : AppCompatActivity() {
     private lateinit var spFloorNo: Spinner
 
     private lateinit var etAddress: EditText
+    // Declare all RadioGroups and RadioButtons
     private lateinit var rgPropertyType: RadioGroup
-    private lateinit var rgBedrooms: RadioGroup
-    private lateinit var rgBathrooms: RadioGroup
+    private lateinit var rbFamily: RadioButton
+    private lateinit var rbBoysHostel: RadioButton
+    private lateinit var rbGirlsHostel: RadioButton
+    private lateinit var rbBoysMess: RadioButton
+    private lateinit var rbGirlsMess: RadioButton
 
+    private lateinit var rgBedrooms: RadioGroup
+    private lateinit var rbBedroom1: RadioButton
+    private lateinit var rbBedroom2: RadioButton
+    private lateinit var rbBedroom3: RadioButton
+    private lateinit var rbBedroom4: RadioButton
+    private lateinit var rbBedroom5: RadioButton
+
+    private lateinit var rgBathrooms: RadioGroup
+    private lateinit var rbBathroom1: RadioButton
+    private lateinit var rbBathroom2: RadioButton
+    private lateinit var rbBathroom3: RadioButton
+    private lateinit var rbBathroom4: RadioButton
+    private lateinit var rbBathroom5: RadioButton
+
+    private lateinit var rgKitchens: RadioGroup
+    private lateinit var rbKitchen0: RadioButton
+    private lateinit var rbKitchen1: RadioButton
+    private lateinit var rbKitchen2: RadioButton
+    private lateinit var cbMuslim: CheckBox
+    private lateinit var cbHindu: CheckBox
+    private lateinit var cbChristian: CheckBox
+    private lateinit var cbBuddhist: CheckBox
+    private lateinit var cbOthers: CheckBox
+
+    private lateinit var cbBikeParking: CheckBox
+    private lateinit var cbCarParking: CheckBox
+    private lateinit var cbGasSupply: CheckBox
+    private lateinit var cbWaterSupply: CheckBox
+    private lateinit var cbFurnished: CheckBox
+    private lateinit var cbWifiConnection: CheckBox
+    private lateinit var cbCCTV: CheckBox
+    private lateinit var etDescription: EditText
+    private lateinit var etMonthlyRent: EditText
+    private lateinit var etPhoneNumber: EditText
+
+    private lateinit var btnPostCircular: Button
+    private lateinit var loadingDialog: LoadingDialog
+
+    var config: HashMap<String, String> = HashMap()
+
+    // Firebase Realtime Database reference
+    private val database = FirebaseDatabase.getInstance()
+    private val rentCircularRef = database.getReference("Rent_Circular")
 
     private lateinit var imageSwitcher: ImageSwitcher
     private val imageUris = mutableListOf<Uri>()
     private var currentImageIndex = 0
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,9 +100,57 @@ class CircularFormActivity : AppCompatActivity() {
         imageSwitcher = findViewById(R.id.post_image)
 
         etAddress = findViewById(R.id.et_address)
+        // Initialize RadioGroups and RadioButtons
         rgPropertyType = findViewById(R.id.rg_propertyType)
+        rbFamily = findViewById(R.id.rb_family)
+        rbBoysHostel = findViewById(R.id.rb_boysHostel)
+        rbGirlsHostel = findViewById(R.id.rb_girlsHostel)
+        rbBoysMess = findViewById(R.id.rb_boysMess)
+        rbGirlsMess = findViewById(R.id.rb_girlsMess)
+
         rgBedrooms = findViewById(R.id.rg_bedrooms)
+        rbBedroom1 = findViewById(R.id.rb_bedroom1)
+        rbBedroom2 = findViewById(R.id.rb_bedroom2)
+        rbBedroom3 = findViewById(R.id.rb_bedroom3)
+        rbBedroom4 = findViewById(R.id.rb_bedroom4)
+        rbBedroom5 = findViewById(R.id.rb_bedroom5)
+
         rgBathrooms = findViewById(R.id.rg_bathrooms)
+        rbBathroom1 = findViewById(R.id.rb_bathroom1)
+        rbBathroom2 = findViewById(R.id.rb_bathroom2)
+        rbBathroom3 = findViewById(R.id.rb_bathroom3)
+        rbBathroom4 = findViewById(R.id.rb_bathroom4)
+        rbBathroom5 = findViewById(R.id.rb_bathroom5)
+
+        rgKitchens = findViewById(R.id.rg_kitchens)
+        rbKitchen0 = findViewById(R.id.rb_kitchen0)
+        rbKitchen1 = findViewById(R.id.rb_kitchen1)
+        rbKitchen2 = findViewById(R.id.rb_kitchen2)
+
+        // Initialize CheckBoxes
+        cbMuslim = findViewById(R.id.cb_muslim)
+        cbHindu = findViewById(R.id.cb_hindu)
+        cbChristian = findViewById(R.id.cb_christian)
+        cbBuddhist = findViewById(R.id.cb_buddhist)
+        cbOthers = findViewById(R.id.cb_others)
+
+        cbBikeParking = findViewById(R.id.cb_bikeParking)
+        cbCarParking = findViewById(R.id.cb_carParking)
+        cbGasSupply = findViewById(R.id.cb_gasSupply)
+        cbWaterSupply = findViewById(R.id.cb_waterSupply)
+        cbFurnished = findViewById(R.id.cb_furnished)
+        cbWifiConnection = findViewById(R.id.cb_wifiConnection)
+        cbCCTV = findViewById(R.id.cb_cctv)
+
+
+        etDescription = findViewById(R.id.et_description)
+        etMonthlyRent = findViewById(R.id.et_monthlyRent)
+        etPhoneNumber = findViewById(R.id.et_phoneNumber)
+
+        // Initialize Button
+        btnPostCircular = findViewById(R.id.btn_postCircular)
+        loadingDialog = LoadingDialog(this)
+
 
 
 
@@ -59,6 +161,12 @@ class CircularFormActivity : AppCompatActivity() {
 
         setupDivisionSpinner()
         setupFloorNoSpinner()
+
+        config.put("cloud_name", "dzoadbvof")
+        config.put("api_key", "127214459725141")
+        config.put("api_secret", "jl6A5zOHd8BMonsddPzSZCIWNok")
+        MediaManager.init(this, config)
+
 
 
         // Set up the factory for ImageSwitcher
@@ -89,8 +197,56 @@ class CircularFormActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.delete_image).setOnClickListener {
             deleteCurrentImage()
         }
+
+        btnPostCircular.setOnClickListener {
+            // Validate and check if fields are empty
+            if (validateFields()) {
+                loadingDialog.show()
+                uploadImagesToCloudinary()
+            }
+        }
     }
 
+
+    // Function to upload images to Cloudinary
+    private fun uploadImagesToCloudinary() {
+        val uploadedImageUrls = mutableListOf<String>()
+        var uploadedCount = 0
+
+        if (imageUris.isEmpty()) {
+            showToast("Please select at least one image.")
+            loadingDialog.dismiss()
+            return
+        }
+
+        for (uri in imageUris) {
+            MediaManager.get().upload(uri)
+                .option("resource_type", "image")
+                .callback(object : UploadCallback {
+                    override fun onStart(requestId: String) {}
+                    override fun onProgress(requestId: String, bytes: Long, totalBytes: Long) {}
+                    override fun onSuccess(requestId: String, resultData: Map<*, *>) {
+                        val imageUrl = resultData["secure_url"] as String
+                        uploadedImageUrls.add(imageUrl)
+                        uploadedCount++
+
+                        // When all images are uploaded (cloudinary), save data to Firebase
+                        if (uploadedCount == imageUris.size) {
+                            saveCircularData(uploadedImageUrls)
+                        }
+                    }
+
+                    override fun onError(requestId: String, error: ErrorInfo) {
+                        loadingDialog.dismiss()
+                        showToast("Image upload failed: ${error.description}")
+                        Log.e("CloudinaryError", "Error: ${error.description}")
+                    }
+
+
+                    override fun onReschedule(requestId: String, error: ErrorInfo) {}
+                }).dispatch()
+        }
+    }
 
 
 
@@ -189,7 +345,7 @@ class CircularFormActivity : AppCompatActivity() {
     }
 
     private fun DistrictSpinner(division: String) {
-        val districts = resources.getStringArray(R.array.district_sylhet) // Using string-array from resources
+        val districts = resources.getStringArray(R.array.district_sylhet)
         val districtAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, districts)
         districtAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice)
         spDistrict.adapter = districtAdapter
@@ -241,4 +397,142 @@ class CircularFormActivity : AppCompatActivity() {
     companion object {
         private const val IMAGE_PICKER_REQUEST = 1001
     }
+
+
+    private fun validateFields(): Boolean {
+        // Validate each field and return false if any field is empty
+        if (etAddress.text.toString().isEmpty()) {
+            Toast.makeText(this, "Address is required.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (spDivision.selectedItem == null) {
+            Toast.makeText(this, "Please select a Division.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (spDistrict.selectedItem == null) {
+            Toast.makeText(this, "Please select a District.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (spUpazila.selectedItem == null) {
+            Toast.makeText(this, "Please select an Upazila.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (rgPropertyType.checkedRadioButtonId == -1) {
+            Toast.makeText(this, "Please select a Property Type.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (rgBedrooms.checkedRadioButtonId == -1) {
+            Toast.makeText(this, "Please select the number of Bedrooms.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (rgBathrooms.checkedRadioButtonId == -1) {
+            Toast.makeText(this, "Please select the number of Bathrooms.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (spFloorNo.selectedItem == null) {
+            Toast.makeText(this, "Please select a Floor Number.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (rgKitchens.checkedRadioButtonId == -1) {
+            Toast.makeText(this, "Please select the number of Kitchens.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (!cbMuslim.isChecked && !cbHindu.isChecked && !cbChristian.isChecked && !cbBuddhist.isChecked && !cbOthers.isChecked) {
+            Toast.makeText(this, "Please select at least one religion.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (!cbBikeParking.isChecked && !cbCarParking.isChecked && !cbGasSupply.isChecked && !cbWaterSupply.isChecked &&
+            !cbFurnished.isChecked && !cbWifiConnection.isChecked && !cbCCTV.isChecked) {
+            Toast.makeText(this, "Please select at least one additional facility.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (etDescription.text.toString().isEmpty()) {
+            Toast.makeText(this, "Additional Description is required.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (etMonthlyRent.text.toString().isEmpty()) {
+            Toast.makeText(this, "Monthly Rent is required.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else if (etPhoneNumber.text.toString().isEmpty()) {
+            Toast.makeText(this, "Phone Number is required.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else {
+            return true
+        }
+    }
+
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun saveCircularData(imageUrls: List<String>) {
+        val propertyType = getSelectedRadioButtonText(rgPropertyType)
+        val bedrooms = getSelectedRadioButtonText(rgBedrooms)
+        val bathrooms = getSelectedRadioButtonText(rgBathrooms)
+        val kitchens = getSelectedRadioButtonText(rgKitchens)
+        val division = spDivision.selectedItem.toString()
+        val district = spDistrict.selectedItem.toString()
+        val upazila = spUpazila.selectedItem.toString()
+        val floorNo = spFloorNo.selectedItem.toString()
+        val address = etAddress.text.toString()
+        val description = etDescription.text.toString()
+        val monthlyRent = etMonthlyRent.text.toString()
+        val phoneNumber = etPhoneNumber.text.toString()
+
+        val selectedReligions = mutableListOf<String>().apply {
+            if (cbMuslim.isChecked) add("Muslim")
+            if (cbHindu.isChecked) add("Hindu")
+            if (cbChristian.isChecked) add("Christian")
+            if (cbBuddhist.isChecked) add("Buddhist")
+            if (cbOthers.isChecked) add("Others")
+        }
+
+        val selectedFacilities = mutableListOf<String>().apply {
+            if (cbBikeParking.isChecked) add("Bike Parking")
+            if (cbCarParking.isChecked) add("Car Parking")
+            if (cbGasSupply.isChecked) add("Gas Supply")
+            if (cbWaterSupply.isChecked) add("Water Supply")
+            if (cbFurnished.isChecked) add("Furnished")
+            if (cbWifiConnection.isChecked) add("Wifi Connection")
+            if (cbCCTV.isChecked) add("CCTV")
+        }
+
+        val circularData = mapOf(
+            "propertyType" to propertyType,
+            "bedrooms" to bedrooms,
+            "bathrooms" to bathrooms,
+            "kitchens" to kitchens,
+            "division" to division,
+            "district" to district,
+            "upazila" to upazila,
+            "floorNo" to floorNo,
+            "address" to address,
+            "description" to description,
+            "monthlyRent" to monthlyRent,
+            "phoneNumber" to phoneNumber,
+            "religions" to selectedReligions,
+            "facilities" to selectedFacilities,
+            "images" to imageUrls
+        )
+
+        rentCircularRef.push().setValue(circularData).addOnCompleteListener { task ->
+            loadingDialog.dismiss()
+            if (task.isSuccessful) {
+                showToast("Circular posted successfully")
+                finish()
+            } else {
+                showToast("Failed to post circular")
+            }
+        }
+    }
+
+    private fun getSelectedRadioButtonText(rg: RadioGroup): String {
+        val selectedRadioButtonId = rg.checkedRadioButtonId
+        return findViewById<RadioButton>(selectedRadioButtonId)?.text.toString()
+    }
+
+
 }
