@@ -5,10 +5,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageSwitcher
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,12 @@ class CircularFormActivity : AppCompatActivity() {
     private lateinit var spDistrict: Spinner
     private lateinit var spUpazila: Spinner
     private lateinit var spFloorNo: Spinner
+
+    private lateinit var etAddress: EditText
+    private lateinit var rgPropertyType: RadioGroup
+    private lateinit var rgBedrooms: RadioGroup
+    private lateinit var rgBathrooms: RadioGroup
+
 
     private lateinit var imageSwitcher: ImageSwitcher
     private val imageUris = mutableListOf<Uri>()
@@ -36,6 +44,12 @@ class CircularFormActivity : AppCompatActivity() {
         spFloorNo = findViewById(R.id.sp_floorNo)
 
         imageSwitcher = findViewById(R.id.post_image)
+
+        etAddress = findViewById(R.id.et_address)
+        rgPropertyType = findViewById(R.id.rg_propertyType)
+        rgBedrooms = findViewById(R.id.rg_bedrooms)
+        rgBathrooms = findViewById(R.id.rg_bathrooms)
+
 
 
         spDivision.setDropDownVerticalOffset(100);

@@ -14,9 +14,11 @@
         tools:targetApi="35">
         <activity
             android:name=".Reset_Password_activity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".CircularFormActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
@@ -25,12 +27,16 @@
             android:name=".SignUp_Activity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+       <activity
+            android:name=".DetailsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Login_Activity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".DetailsActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
