@@ -54,10 +54,6 @@
 
             <ImageButton
                 android:id="@+id/before"
-<<<<<<< HEAD
-=======
-
->>>>>>> fadfd244e9dce4aeceb17090949a17e7f01a0892
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -95,10 +91,6 @@
                 android:id="@+id/after"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
-=======
-
->>>>>>> fadfd244e9dce4aeceb17090949a17e7f01a0892
                 android:background="@color/white"
                 android:src="@drawable/after_ic" />
         </LinearLayout>
