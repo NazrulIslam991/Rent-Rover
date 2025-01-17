@@ -21,11 +21,15 @@
             android:exported="false" />
         <activity
             android:name=".CircularFormActivity"
-            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
+
+
         <activity
             android:name=".HomeActivity"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
+
+
         <activity
             android:name=".SignUp_Activity"
             android:exported="false"
@@ -47,6 +51,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <meta-data
             android:name="CLOUDINARY_URL"
