@@ -77,7 +77,6 @@ class CircularFormActivity : AppCompatActivity() {
     private lateinit var btnPostCircular: Button
     private lateinit var loadingDialog: LoadingDialog
 
-    var config: HashMap<String, String> = HashMap()
 
     // Firebase Realtime Database reference
     private val database = FirebaseDatabase.getInstance()
@@ -161,12 +160,6 @@ class CircularFormActivity : AppCompatActivity() {
 
         setupDivisionSpinner()
         setupFloorNoSpinner()
-
-        config.put("cloud_name", "dzoadbvof")
-        config.put("api_key", "127214459725141")
-        config.put("api_secret", "jl6A5zOHd8BMonsddPzSZCIWNok")
-        MediaManager.init(this, config)
-
 
 
         // Set up the factory for ImageSwitcher
