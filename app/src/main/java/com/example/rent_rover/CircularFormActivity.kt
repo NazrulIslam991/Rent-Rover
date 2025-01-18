@@ -16,6 +16,7 @@ import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.cloudinary.android.MediaManager
@@ -29,6 +30,7 @@ class CircularFormActivity : AppCompatActivity() {
     private lateinit var spDistrict: Spinner
     private lateinit var spUpazila: Spinner
     private lateinit var spFloorNo: Spinner
+    private lateinit var exit:ImageButton
 
     private lateinit var etAddress: EditText
     // Declare all RadioGroups and RadioButtons
@@ -146,6 +148,8 @@ class CircularFormActivity : AppCompatActivity() {
         etMonthlyRent = findViewById(R.id.et_monthlyRent)
         etPhoneNumber = findViewById(R.id.et_phoneNumber)
 
+        exit=findViewById(R.id.exit)
+
         // Initialize Button
         btnPostCircular = findViewById(R.id.btn_postCircular)
         loadingDialog = LoadingDialog(this)
@@ -162,6 +166,11 @@ class CircularFormActivity : AppCompatActivity() {
         setupFloorNoSpinner()
 
 
+        exit.setOnClickListener{
+            finish()
+        }
+
+
         // Set up the factory for ImageSwitcher
         imageSwitcher.setFactory {
             ImageView(this).apply {
@@ -170,7 +179,7 @@ class CircularFormActivity : AppCompatActivity() {
         }
 
         // Set the initial image
-        imageSwitcher.setImageResource(R.drawable.initial_image)
+        imageSwitcher.setImageResource(R.drawable.add_image)
 
         // Set an OnClickListener to the image field to open the gallery
         findViewById<LinearLayout>(R.id.image_feild).setOnClickListener {
@@ -317,7 +326,7 @@ class CircularFormActivity : AppCompatActivity() {
                 showImageInSwitcher()
             } else {
                 // If no images left, set a default image or reset the ImageSwitcher
-                imageSwitcher.setImageResource(R.drawable.initial_image)
+                imageSwitcher.setImageResource(R.drawable.add_image)
                 currentImageIndex = 0
             }
         }
@@ -393,68 +402,90 @@ class CircularFormActivity : AppCompatActivity() {
 
 
     private fun validateFields(): Boolean {
-        // Validate each field and return false if any field is empty
-        if (etAddress.text.toString().isEmpty()) {
-            Toast.makeText(this, "Address is required.", Toast.LENGTH_SHORT).show()
+
+        if (spDivision.selectedItem == null || spDivision.selectedItem.toString() == "Select Division") {
+            Toast.makeText(this, "Division is required.", Toast.LENGTH_SHORT).show()
+            spDivision.requestFocus()
             return false
         }
-        else if (spDivision.selectedItem == null) {
-            Toast.makeText(this, "Please select a Division.", Toast.LENGTH_SHORT).show()
+
+        else if (spDistrict.selectedItem == null || spDistrict.selectedItem.toString() == "Select District") {
+            Toast.makeText(this, "District is required.", Toast.LENGTH_SHORT).show()
+            spDistrict.requestFocus()
             return false
         }
-        else if (spDistrict.selectedItem == null) {
-            Toast.makeText(this, "Please select a District.", Toast.LENGTH_SHORT).show()
+
+        else if (spUpazila.selectedItem == null || spUpazila.selectedItem.toString() == "Select Upazila") {
+            Toast.makeText(this, "Upazila is required.", Toast.LENGTH_SHORT).show()
+            spUpazila.requestFocus()
             return false
         }
-        else if (spUpazila.selectedItem == null) {
-            Toast.makeText(this, "Please select an Upazila.", Toast.LENGTH_SHORT).show()
+        else if (etAddress.text.toString().isEmpty()) {
+            etAddress.error = "Address is required."
+            etAddress.requestFocus()
             return false
         }
+
         else if (rgPropertyType.checkedRadioButtonId == -1) {
-            Toast.makeText(this, "Please select a Property Type.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Property Type is required.", Toast.LENGTH_SHORT).show()
             return false
         }
+
         else if (rgBedrooms.checkedRadioButtonId == -1) {
-            Toast.makeText(this, "Please select the number of Bedrooms.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Number of Bedrooms is required.", Toast.LENGTH_SHORT).show()
             return false
         }
+
         else if (rgBathrooms.checkedRadioButtonId == -1) {
-            Toast.makeText(this, "Please select the number of Bathrooms.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Number of Bathrooms is required.", Toast.LENGTH_SHORT).show()
             return false
         }
-        else if (spFloorNo.selectedItem == null) {
-            Toast.makeText(this, "Please select a Floor Number.", Toast.LENGTH_SHORT).show()
+
+        else if (spFloorNo.selectedItem == null || spFloorNo.selectedItem.toString() == "Select Floor") {
+            Toast.makeText(this, "Floor Number is required.", Toast.LENGTH_SHORT).show()
+            spFloorNo.requestFocus()
             return false
         }
-        else if (rgKitchens.checkedRadioButtonId == -1) {
-            Toast.makeText(this, "Please select the number of Kitchens.", Toast.LENGTH_SHORT).show()
+
+        else  if (rgKitchens.checkedRadioButtonId == -1) {
+            Toast.makeText(this, "Number of Kitchens is required.", Toast.LENGTH_SHORT).show()
             return false
         }
+
         else if (!cbMuslim.isChecked && !cbHindu.isChecked && !cbChristian.isChecked && !cbBuddhist.isChecked && !cbOthers.isChecked) {
             Toast.makeText(this, "Please select at least one religion.", Toast.LENGTH_SHORT).show()
             return false
         }
+
         else if (!cbBikeParking.isChecked && !cbCarParking.isChecked && !cbGasSupply.isChecked && !cbWaterSupply.isChecked &&
             !cbFurnished.isChecked && !cbWifiConnection.isChecked && !cbCCTV.isChecked) {
             Toast.makeText(this, "Please select at least one additional facility.", Toast.LENGTH_SHORT).show()
             return false
         }
+
         else if (etDescription.text.toString().isEmpty()) {
-            Toast.makeText(this, "Additional Description is required.", Toast.LENGTH_SHORT).show()
+            etDescription.error = "Additional Description is required."
+            etDescription.requestFocus()
             return false
         }
+
         else if (etMonthlyRent.text.toString().isEmpty()) {
-            Toast.makeText(this, "Monthly Rent is required.", Toast.LENGTH_SHORT).show()
+            etMonthlyRent.error = "Monthly Rent is required."
+            etMonthlyRent.requestFocus()
             return false
         }
+
         else if (etPhoneNumber.text.toString().isEmpty()) {
-            Toast.makeText(this, "Phone Number is required.", Toast.LENGTH_SHORT).show()
+            etPhoneNumber.error = "Phone Number is required."
+            etPhoneNumber.requestFocus()
             return false
         }
-        else {
+        else{
             return true
         }
     }
+
+
 
 
     private fun showToast(message: String) {

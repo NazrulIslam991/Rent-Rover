@@ -65,7 +65,6 @@ class HomeActivity : AppCompatActivity() {
         addMenuFab.setOnClickListener {
             val intent = Intent(this, CircularFormActivity::class.java)
             startActivity(intent)
-            Toast.makeText(this, "Floating action bar", Toast.LENGTH_SHORT).show()
         }
     }
 
