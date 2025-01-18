@@ -55,4 +55,9 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:21.3.0")
 
     implementation ("com.cloudinary:cloudinary-android:3.0.2")
+    implementation ("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
+
+
+
 }
