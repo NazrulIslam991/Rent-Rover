@@ -1,6 +1,7 @@
 package com.example.rent_rover
 
 import android.content.Intent
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+
 class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : RecyclerView.Adapter<RentCircularAdapter.RentCircularViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RentCircularViewHolder {
@@ -29,6 +31,7 @@ class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : Re
         val wifiConnection = if (rentCircular.facilities.contains("Wifi Connection")) "Yes" else "No"
         holder.cbWifiConnection.text = wifiConnection
 
+
         val imageUrls = rentCircular.images
         if (imageUrls.isNotEmpty()) {
             val imageAdapter = ImagePagerAdapter(imageUrls)
@@ -43,6 +46,7 @@ class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : Re
             val intent = Intent(context, DetailsActivity::class.java)
             intent.putExtra("RENT_CIRCULAR", rentCircular)
             context.startActivity(intent)
+
         }
     }
 
@@ -58,9 +62,9 @@ class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : Re
         val tvBedrooms: TextView = itemView.findViewById(R.id.rg_bedrooms)
         val tvBathrooms: TextView = itemView.findViewById(R.id.rg_bathrooms)
         val cbWifiConnection: TextView = itemView.findViewById(R.id.cb_wifiConnection)
+
         val viewPager: ViewPager2 = itemView.findViewById(R.id.viewPager)
         val tabLayout: TabLayout = itemView.findViewById(R.id.tabLayout)
     }
 }
-
 
