@@ -178,11 +178,15 @@ class Login_Activity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 loadingDialog.dismiss()
                 if (task.isSuccessful) {
+
+
                     val user = firebaseAuth.currentUser
                     val sessionManager = SessionManager(this)
                     user?.let {
                         sessionManager.createLoginSession(it.uid, it.email ?: "", it.displayName ?: "")
+
                         saveUserDetailsToDatabase(it.uid, it.displayName, it.email)
+
                     }
 
                     Toast.makeText(this, "Google Sign-In successful", Toast.LENGTH_SHORT).show()
