@@ -506,6 +506,7 @@ class CircularFormActivity : AppCompatActivity() {
         val monthlyRent = etMonthlyRent.text.toString()
         val phoneNumber = etPhoneNumber.text.toString()
 
+        // Fetch the selected religions
         val selectedReligions = mutableListOf<String>().apply {
             if (cbMuslim.isChecked) add("Muslim")
             if (cbHindu.isChecked) add("Hindu")
@@ -514,6 +515,7 @@ class CircularFormActivity : AppCompatActivity() {
             if (cbOthers.isChecked) add("Others")
         }
 
+        // Fetch the selected facilities
         val selectedFacilities = mutableListOf<String>().apply {
             if (cbBikeParking.isChecked) add("Bike Parking")
             if (cbCarParking.isChecked) add("Car Parking")
@@ -523,6 +525,10 @@ class CircularFormActivity : AppCompatActivity() {
             if (cbWifiConnection.isChecked) add("Wifi Connection")
             if (cbCCTV.isChecked) add("CCTV")
         }
+
+        // Get the current user's ID from SessionManager
+        val sessionManager = SessionManager(this)
+        val userId = sessionManager.getUserDetails()[SessionManager.USER_ID] ?: ""
 
         val circularData = mapOf(
             "propertyType" to propertyType,
@@ -539,7 +545,8 @@ class CircularFormActivity : AppCompatActivity() {
             "phoneNumber" to phoneNumber,
             "religions" to selectedReligions,
             "facilities" to selectedFacilities,
-            "images" to imageUrls
+            "images" to imageUrls,
+            "userId" to userId
         )
 
         rentCircularRef.push().setValue(circularData).addOnCompleteListener { task ->
@@ -552,6 +559,7 @@ class CircularFormActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun getSelectedRadioButtonText(rg: RadioGroup): String {
         val selectedRadioButtonId = rg.checkedRadioButtonId
