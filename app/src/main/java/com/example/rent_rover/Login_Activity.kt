@@ -178,11 +178,11 @@ class Login_Activity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 loadingDialog.dismiss()
                 if (task.isSuccessful) {
-                    // Save user session
                     val user = firebaseAuth.currentUser
                     val sessionManager = SessionManager(this)
                     user?.let {
                         sessionManager.createLoginSession(it.uid, it.email ?: "", it.displayName ?: "")
+                        saveUserDetailsToDatabase(it.uid, it.displayName, it.email)
                     }
 
                     Toast.makeText(this, "Google Sign-In successful", Toast.LENGTH_SHORT).show()
@@ -193,6 +193,7 @@ class Login_Activity : AppCompatActivity() {
                 }
             }
     }
+
 
 
     private fun saveUserDetailsToDatabase(uid: String?, name: String?, email: String?) {
@@ -207,13 +208,14 @@ class Login_Activity : AppCompatActivity() {
         uid?.let {
             usersRef.child(it).setValue(user).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Log.d("RealtimeDatabase", "successfully")
+                    Log.d("RealtimeDatabase", "Successfully")
                 } else {
                     Log.w("RealtimeDatabase", "Failed to save user details", task.exception)
                 }
             }
         }
     }
+
 
 
     // Email validation
