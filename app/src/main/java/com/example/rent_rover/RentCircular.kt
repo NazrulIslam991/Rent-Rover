@@ -1,5 +1,7 @@
 package com.example.rent_rover
 
+import java.io.Serializable
+
 data class RentCircular(
     val propertyType: String = "",
     val bedrooms: String = "",
@@ -16,4 +18,5 @@ data class RentCircular(
     val religions: List<String> = listOf(),
     val facilities: List<String> = listOf(),
     val images: List<String> = emptyList()
-)
+) : Serializable
+
