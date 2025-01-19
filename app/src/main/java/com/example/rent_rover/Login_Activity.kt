@@ -119,23 +119,22 @@ class Login_Activity : AppCompatActivity() {
 
         if (!validateUserEmail(email)) {
             return
-        }
-
-        else if (!validateUserPassword(password)) {
+        } else if (!validateUserPassword(password)) {
             return
-        }
-        else{
-            // Show loading dialog
+        } else {
             loadingDialog.show()
-            // Authenticate user with Firebase
             firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
-                    // Hide loading dialog
                     loadingDialog.dismiss()
-
                     if (task.isSuccessful) {
+                        // Save user session
+                        val user = firebaseAuth.currentUser
+                        val sessionManager = SessionManager(this)
+                        user?.let {
+                            sessionManager.createLoginSession(it.uid, it.email ?: "", it.displayName ?: "")
+                        }
+
                         Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
-                        // Navigate to the HomeActivity or main activity
                         val intent = Intent(this, HomeActivity::class.java)
                         startActivity(intent)
                         finish()
@@ -144,8 +143,8 @@ class Login_Activity : AppCompatActivity() {
                     }
                 }
         }
-
     }
+
 
 
     private fun signInWithGoogle() {
@@ -179,14 +178,17 @@ class Login_Activity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 loadingDialog.dismiss()
                 if (task.isSuccessful) {
-                    // Sign-in successful, save user details in Realtime Database
+                    // Save user session
                     val user = firebaseAuth.currentUser
-                    saveUserDetailsToDatabase(user?.uid, user?.displayName, user?.email)
+                    val sessionManager = SessionManager(this)
+                    user?.let {
+                        sessionManager.createLoginSession(it.uid, it.email ?: "", it.displayName ?: "")
+                    }
+
                     Toast.makeText(this, "Google Sign-In successful", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 } else {
-                    Log.w("FirebaseAuth", "Sign-in failed", task.exception)
                     Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
                 }
             }
