@@ -1,0 +1,2 @@
+1. menu on click works in HomeActivity line no. 72
+2. floating action button or add button works in HomeActivity line no. 65

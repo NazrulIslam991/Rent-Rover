@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/shorts"
-        android:title="N/A"
+        android:title="Messages"
         android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/add"
@@ -15,11 +15,11 @@
         android:enabled="false"/>
     <item
         android:id="@+id/notification"
-        android:title="notification"
+        android:title="Notifications"
         android:icon="@drawable/ic_notification"/>
     <item
         android:id="@+id/menu"
-        android:title="menu"
+        android:title="Profile"
         android:icon="@drawable/ic_menu"/>
 
 

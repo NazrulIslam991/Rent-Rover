@@ -221,7 +221,7 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="17dp"
-            android:layout_gravity="center"/>
+            />
         <TextView
             android:id="@+id/tv_religion"
             android:layout_width="wrap_content"
@@ -239,9 +239,9 @@
         android:text="Other Facilities "
         android:textStyle="bold"
         android:orientation="vertical"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="7dp"
         android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="19dp"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -473,10 +473,12 @@
             />
     </LinearLayout>
     <Button
-        android:id="@+id/btn_sendRequest"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Send Rent Request"
+        android:id="@+id/btn_sendMessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Send Meassage"
+        android:drawableLeft="@drawable/send"
         />
 
 
