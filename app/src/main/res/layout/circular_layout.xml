@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_marginHorizontal="40dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
     android:background="@drawable/custom_layout"
     android:elevation="10dp"
-    android:translationZ="10dp"
+    android:layout_marginBottom="10dp"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="140dp">
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/img"
-            android:scaleType="centerCrop"
-            />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
 
-    </LinearLayout>
+        android:layout_height="20dp"
+        app:tabIndicatorHeight="4dp"
+        app:tabIndicatorColor="@color/black"
+        android:layout_gravity="center" />
+
+
+
     <LinearLayout
+        android:id="@+id/details_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:padding="15dp"
+        android:padding="10dp"
+        android:background="@drawable/rounded_corners_circular_layout_details"
         android:layout_weight="0.8">
 
         <TextView
@@ -37,7 +46,7 @@
             android:layout_marginBottom="5dp"
             android:textSize="15sp"/>
         <TextView
-            android:id="@+id/tv_houseAddress"
+            android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Block D, Road#31, Sahjajal Upashahar, Sylhet"
@@ -75,6 +84,7 @@
                 android:layout_marginRight="2dp"
                 />
             <TextView
+                android:id="@+id/sp_floorNo"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,6 +101,7 @@
                 android:layout_marginRight="2dp"
                 />
             <TextView
+                android:id="@+id/rg_bedrooms"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -107,6 +118,7 @@
                 android:layout_marginRight="2dp"
                 />
             <TextView
+                android:id="@+id/rg_bathrooms"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,6 +135,7 @@
                 android:layout_marginRight="2dp"
                 />
             <TextView
+                android:id="@+id/cb_wifiConnection"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
