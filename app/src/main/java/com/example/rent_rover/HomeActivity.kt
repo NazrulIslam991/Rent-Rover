@@ -20,7 +20,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var addMenuFab: FloatingActionButton
 
 
-    private val backStack: Deque<Int> = ArrayDeque(3)
+    private val backStack: Deque<Int> = ArrayDeque(4)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +72,7 @@ class HomeActivity : AppCompatActivity() {
     private fun getFragmentByMenuId(menuId: Int): Fragment {
         return when (menuId) {
             R.id.home -> HomeFragment()
+            R.id.messages -> MessagesFragment()
             R.id.notification -> NotificationFragment()
             R.id.menu -> MenuFragment()
             else -> HomeFragment()
@@ -85,7 +86,15 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (backStack.size > 1) {
+        if (supportFragmentManager.findFragmentById(R.id.frame_layout) is HomeFragment) {
+            AlertDialog.Builder(this)
+                .setTitle("Exit")
+                .setMessage("Are you sure you want to exit?")
+                .setPositiveButton("Yes") { _, _ -> finish() }
+                .setNegativeButton("No", null)
+                .show()
+        }
+        else if (backStack.size > 1) {
             //Remove the current fragment's menu ID
             backStack.pop()
             // Get the previous fragment's menu ID
@@ -94,19 +103,6 @@ class HomeActivity : AppCompatActivity() {
             // Update the BottomNavigationView and load the previous fragment
             bottomNavigationView.selectedItemId = previousFragmentId
             loadFragment(getFragmentByMenuId(previousFragmentId))
-        } else {
-            // If only one fragment is left, show an exit dialog
-            AlertDialog.Builder(this)
-                .setTitle("Exit")
-                .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes") { dialog, _ ->
-                    // Finish all activities and close the app
-                    dialog.dismiss()
-                    finishAffinity()
-                    System.exit(0)
-                }
-                .setNegativeButton("No", null)
-                .show()
         }
     }
 }

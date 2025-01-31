@@ -6,9 +6,9 @@
         android:title="Home"
         android:icon="@drawable/ic_home"/>
     <item
-        android:id="@+id/shorts"
+        android:id="@+id/messages"
         android:title="Messages"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/chat"/>
     <item
         android:id="@+id/add"
         android:title=""

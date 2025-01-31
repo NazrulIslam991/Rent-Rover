@@ -25,7 +25,8 @@ class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : Re
         holder.tvHouseType.text = rentCircular.propertyType
         holder.tvAddress.text = rentCircular.address
         holder.tvMonthlyRent.text = "${rentCircular.monthlyRent}"
-        holder.tvFloorNo.text = rentCircular.floorNo
+        val formattedFloorNo = addOrdinalSuffix(rentCircular.floorNo.replace("Floor", "").trim())
+        holder.tvFloorNo.text = formattedFloorNo
         holder.tvBedrooms.text = rentCircular.bedrooms
         holder.tvBathrooms.text = rentCircular.bathrooms
         val wifiConnection = if (rentCircular.facilities.contains("Wifi Connection")) "Yes" else "No"
@@ -66,5 +67,22 @@ class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : Re
         val viewPager: ViewPager2 = itemView.findViewById(R.id.viewPager)
         val tabLayout: TabLayout = itemView.findViewById(R.id.tabLayout)
     }
+
+    private fun addOrdinalSuffix(numberString: String): String {
+        return try {
+            val number = numberString.toInt()
+            val suffix = when {
+                number in 11..13 -> "th"
+                number % 10 == 1 -> "st"
+                number % 10 == 2 -> "nd"
+                number % 10 == 3 -> "rd"
+                else -> "th"
+            }
+            "$number$suffix"
+        } catch (e: NumberFormatException) {
+            numberString
+        }
+    }
+
 }
 
