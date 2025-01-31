@@ -114,49 +114,49 @@
             android:textSize="16sp"
             android:layout_marginBottom="3dp"
             android:textStyle="bold" />
-            <CheckBox
-                android:id="@+id/rb_family"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/lightBlue"
-                android:text="Apparment for family"
-                android:textColor="@color/black"
-                android:elevation="1dp"
-                android:translationX="1dp"
-                android:translationZ="1dp"
-                />
-            <CheckBox
-                android:id="@+id/rb_boysHostel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/lightBlue"
-                android:text="Boys' Hostel"
-                android:textColor="@color/black"
-                />
-            <CheckBox
-                android:id="@+id/rb_girlsHostel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/lightBlue"
-                android:text="Girls' Hostel"
-                android:textColor="@color/black"
-                />
-            <CheckBox
-                android:id="@+id/rb_boysMess"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/lightBlue"
-                android:text="Boys' Mess"
-                android:textColor="@color/black"
-                />
-            <CheckBox
-                android:id="@+id/rb_girlsMess"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/lightBlue"
-                android:text="Girls' Mess"
-                android:textColor="@color/black"
-                />
+        <CheckBox
+            android:id="@+id/rb_family"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lightBlue"
+            android:text="Apparment for family"
+            android:textColor="@color/black"
+            android:elevation="1dp"
+            android:translationX="1dp"
+            android:translationZ="1dp"
+            />
+        <CheckBox
+            android:id="@+id/rb_boysHostel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lightBlue"
+            android:text="Boys' Hostel"
+            android:textColor="@color/black"
+            />
+        <CheckBox
+            android:id="@+id/rb_girlsHostel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lightBlue"
+            android:text="Girls' Hostel"
+            android:textColor="@color/black"
+            />
+        <CheckBox
+            android:id="@+id/rb_boysMess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lightBlue"
+            android:text="Boys' Mess"
+            android:textColor="@color/black"
+            />
+        <CheckBox
+            android:id="@+id/rb_girlsMess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lightBlue"
+            android:text="Girls' Mess"
+            android:textColor="@color/black"
+            />
     </LinearLayout>
 
     <LinearLayout

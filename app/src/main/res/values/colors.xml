@@ -8,4 +8,7 @@
     <color name="colorPrimary">#3949AB</color>
     <color name="lightBlue">#673AB7</color>
     <color name="lightBlue1">#00AEEF</color>
+    <color name="purple">#800080</color>
+    <color name="black_shade">#333333</color>
+
 </resources>
