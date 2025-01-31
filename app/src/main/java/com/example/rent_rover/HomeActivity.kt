@@ -68,6 +68,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    //Menu buttons work in this function or method
     private fun getFragmentByMenuId(menuId: Int): Fragment {
         return when (menuId) {
             R.id.home -> HomeFragment()
