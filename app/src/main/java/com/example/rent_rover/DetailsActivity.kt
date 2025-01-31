@@ -35,6 +35,8 @@ class DetailsActivity : AppCompatActivity() {
         val btnSendMessage = findViewById<Button>(R.id.btn_sendMessage)
         btnSendMessage.setOnClickListener {
             val intent = Intent(this, MessageChatActivity::class.java)
+            intent.putExtra("USER_ID", rentCircular.userId)
+
             startActivity(intent)
         }
 

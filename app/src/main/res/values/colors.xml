@@ -10,5 +10,8 @@
     <color name="lightBlue1">#00AEEF</color>
     <color name="purple">#800080</color>
     <color name="black_shade">#333333</color>
+    <color name="grey">#4D5057</color>
+    <color name="green">#4FC18A</color>
+    <color name="blue">#3F69BD</color>
 
 </resources>

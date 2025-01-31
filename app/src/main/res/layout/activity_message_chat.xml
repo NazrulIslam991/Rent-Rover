@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BED8ED"
+    android:background="@color/white"
+
     tools:context=".MessageChatActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -43,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="15dp"
-                android:text="Pets Passion"
+                android:text="Unknown Person"
                 android:textColor="#fff"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -74,7 +75,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/lavender"
+        android:background="#DADBE4"
+
         android:padding="10dp">
 
         <EditText
