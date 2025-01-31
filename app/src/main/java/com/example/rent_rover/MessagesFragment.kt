@@ -61,5 +61,4 @@ class MessagesFragment : Fragment() {
             }
         })
     }
-
 }
