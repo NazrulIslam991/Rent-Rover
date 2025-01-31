@@ -18,6 +18,7 @@ data class RentCircular(
     val phoneNumber: String = "",
     val religions: List<String> = listOf(),
     val facilities: List<String> = listOf(),
-    val images: List<String> = emptyList()
+    val images: List<String> = emptyList(),
+    val userId: String = ""
 ) : Serializable
 
