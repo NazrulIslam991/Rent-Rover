@@ -1,9 +1,11 @@
 package com.example.rent_rover
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -31,6 +33,19 @@ class DetailsActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_description).text = rentCircular.description
         findViewById<TextView>(R.id.tv_contact).text = rentCircular.phoneNumber
         findViewById<TextView>(R.id.tv_houseAddress).text = Location
+
+
+        //when click on call_now, then go to dialer.
+        val callNow = findViewById<ImageButton>(R.id.call_now)
+        val tvContact = findViewById<TextView>(R.id.tv_contact)
+
+        callNow.setOnClickListener {
+            val phoneNumber = tvContact.text.toString()
+            val dialIntent = Intent(Intent.ACTION_DIAL).apply {
+                data = Uri.parse("tel:$phoneNumber")
+            }
+            startActivity(dialIntent)
+        }
 
         val btnSendMessage = findViewById<Button>(R.id.btn_sendMessage)
         btnSendMessage.setOnClickListener {
