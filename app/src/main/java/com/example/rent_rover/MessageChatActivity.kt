@@ -63,13 +63,16 @@ class MessageChatActivity : AppCompatActivity() {
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user = snapshot.getValue(Users::class.java)
-                receiverName.text = user?.name ?: "Unknown"
+                if (user?.name != null && user.name.isNotEmpty()) {
+                    receiverName.text = user.name
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(this@MessageChatActivity, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         })
+
 
         btnSend.setOnClickListener {
             val message = textSend.text.toString().trim()
@@ -90,6 +93,11 @@ class MessageChatActivity : AppCompatActivity() {
     }
 
     private fun sendMessageToUser(senderID: String, receiverID: String, message: String) {
+
+        if (senderID == receiverID) {
+            Toast.makeText(this, "You cannot send messages to yourself!", Toast.LENGTH_SHORT).show()
+            return
+        }
         val reference = FirebaseDatabase.getInstance().reference
         val messageKey = reference.child("Chats").push().key ?: return
 
@@ -162,8 +170,7 @@ class MessageChatActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (data in snapshot.children) {
                     val chat = data.getValue(ChatModelClass::class.java)
-                    if (chat != null && ((chat.sender == senderID && chat.receiver == receiverID) ||
-                                (chat.sender == receiverID && chat.receiver == senderID))) {
+                    if (chat != null && ((chat.sender == senderID && chat.receiver == receiverID) || (chat.sender == receiverID && chat.receiver == senderID))) {
                         data.ref.removeValue()
                     }
                 }

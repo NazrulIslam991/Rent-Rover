@@ -13,5 +13,6 @@
     <color name="grey">#4D5057</color>
     <color name="green">#4FC18A</color>
     <color name="blue">#3F69BD</color>
+    <color name="p_bg">#00aeef</color>
 
 </resources>

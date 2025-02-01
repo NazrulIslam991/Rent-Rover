@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -17,6 +18,7 @@ class Reset_Password_activity : AppCompatActivity() {
     private lateinit var resetPasswordButton: Button
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var loadingDialog: LoadingDialog
+    private lateinit var backIcon: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,7 @@ class Reset_Password_activity : AppCompatActivity() {
         // Initialize views
         emailEditText = findViewById(R.id.email)
         resetPasswordButton = findViewById(R.id.reset_password_button)
+        backIcon = findViewById(R.id.back_icon)
 
         // Initialize FirebaseAuth
         firebaseAuth = FirebaseAuth.getInstance()
@@ -40,6 +43,11 @@ class Reset_Password_activity : AppCompatActivity() {
         // Set click listener for reset password button
         resetPasswordButton.setOnClickListener {
             sendPasswordResetLink()
+        }
+
+        //back button click
+        backIcon.setOnClickListener {
+            finish()
         }
     }
 
@@ -62,8 +70,8 @@ class Reset_Password_activity : AppCompatActivity() {
 
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Reset password link has been sent to your email.", Toast.LENGTH_LONG).show()
-                    val intent = Intent(this, Login_Activity::class.java)
-                    startActivity(intent)
+//                    val intent = Intent(this, Login_Activity::class.java)
+//                    startActivity(intent)
                     finish()
                 } else {
                     Toast.makeText(this, "Failed to send reset email. Please check the email address and try again.", Toast.LENGTH_LONG).show()
