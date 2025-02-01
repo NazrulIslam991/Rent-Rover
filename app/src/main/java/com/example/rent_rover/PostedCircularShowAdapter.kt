@@ -1,19 +1,16 @@
 package com.example.rent_rover
 
 import android.content.Intent
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : RecyclerView.Adapter<RentCircularAdapter.RentCircularViewHolder>() {
+class PostedCircularShowAdapter(private val rentCircularList: List<RentCircular>) : RecyclerView.Adapter<PostedCircularShowAdapter.RentCircularViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RentCircularViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.circular_layout, parent, false)
@@ -42,13 +39,13 @@ class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : Re
         }
 
         // Handle click on the entire item
-        holder.itemView.setOnClickListener {
-            val context = holder.itemView.context
-            val intent = Intent(context, DetailsActivity::class.java)
-            intent.putExtra("RENT_CIRCULAR", rentCircular)
-            context.startActivity(intent)
-
-        }
+//        holder.itemView.setOnClickListener {
+//            val context = holder.itemView.context
+//            val intent = Intent(context, DetailsActivity::class.java)
+//            intent.putExtra("RENT_CIRCULAR", rentCircular)
+//            context.startActivity(intent)
+//
+//        }
     }
 
     override fun getItemCount(): Int {

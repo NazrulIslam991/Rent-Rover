@@ -1,61 +1,100 @@
 package com.example.rent_rover
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.RelativeLayout
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MenuFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MenuFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-
-    }
+    private lateinit var lo_logout: RelativeLayout
+    private lateinit var lo_changePassword: RelativeLayout
+    private lateinit var lo_postedCircular: RelativeLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_profile, container, false)
+        return inflater.inflate(R.layout.fragment_menu, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MenuFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MenuFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Set status bar color
+        activity?.window?.statusBarColor = ContextCompat.getColor(requireActivity(), R.color.p_bg)
+        activity?.window?.decorView?.systemUiVisibility = activity?.window?.decorView?.systemUiVisibility ?: 0 or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+
+
+        // Initialize session manager
+        val sessionManager = SessionManager(requireContext())
+        val userDetails = sessionManager.getUserDetails()
+
+
+        // Set user details in TextViews
+        val tvName: TextView = view.findViewById(R.id.tv_name)
+        val tvEmail: TextView = view.findViewById(R.id.tv_email)
+
+        tvName.text = userDetails[SessionManager.USER_NAME] ?: "Guest"
+        tvEmail.text = userDetails[SessionManager.USER_EMAIL] ?: "guest@example.com"
+
+
+
+        // Logout button click listener
+        lo_logout = view.findViewById(R.id.lo_logout)
+        lo_logout.setOnClickListener {
+            showLogoutDialog()
+        }
+
+
+
+        // reset password button click listener
+        lo_changePassword = view.findViewById(R.id.lo_changePassword)
+        lo_changePassword.setOnClickListener{
+            val intent = Intent(requireContext(), Reset_Password_activity::class.java)
+            startActivity(intent)
+        }
+
+        lo_postedCircular = view.findViewById(R.id.lo_postedCircular)
+        lo_postedCircular.setOnClickListener{
+            val intent = Intent(requireContext(),PostedCircularActivityShow::class.java)
+            startActivity(intent)
+        }
+    }
+
+
+    private fun showLogoutDialog() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Logout")
+        builder.setMessage("Are you sure you want to logout?")
+
+        builder.setPositiveButton("Yes") { dialog, _ ->
+            logoutUser()
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val alertDialog = builder.create()
+        alertDialog.show()
+    }
+
+
+
+    private fun logoutUser() {
+        val sessionManager = SessionManager(requireContext())
+        sessionManager.logoutUser()
+
+        // Navigate to login screen
+        val intent = Intent(requireContext(), Login_Activity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 }

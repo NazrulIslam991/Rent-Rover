@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:paddingTop="15dp"
-    tools:context=".HomeFragment">
+    tools:context=".PostedCircularActivityShow">
 
     <!-- Material Search Bar -->
     <LinearLayout
@@ -17,6 +17,14 @@
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_ic"
+            android:layout_gravity="center"
+            tools:ignore="ContentDescription" />
 
         <com.mancj.materialsearchbar.MaterialSearchBar
             android:id="@+id/searchBar"
@@ -31,14 +39,7 @@
             app:mt_navIconEnabled="true"
             app:mt_textColor="@color/black" />
 
-        <ImageView
-            android:id="@+id/filterIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="8dp"
-            android:src="@drawable/filter"
-            android:contentDescription="Filter"
-            android:layout_marginStart="8dp"/>
+
     </LinearLayout>
 
     <!-- RecyclerView -->
@@ -50,4 +51,17 @@
         android:layout_marginBottom="15dp"
         android:clipToPadding="false"
         android:layout_below="@id/searchbar_layout" />
+
+    <TextView
+        android:id="@+id/emptyMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No rent circulars available"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
 </RelativeLayout>
