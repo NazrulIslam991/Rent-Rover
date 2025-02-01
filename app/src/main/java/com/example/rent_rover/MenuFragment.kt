@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 class MenuFragment : Fragment() {
     private lateinit var lo_logout: RelativeLayout
     private lateinit var lo_changePassword: RelativeLayout
+    private lateinit var lo_postedCircular: RelativeLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,6 +57,12 @@ class MenuFragment : Fragment() {
         lo_changePassword = view.findViewById(R.id.lo_changePassword)
         lo_changePassword.setOnClickListener{
             val intent = Intent(requireContext(), Reset_Password_activity::class.java)
+            startActivity(intent)
+        }
+
+        lo_postedCircular = view.findViewById(R.id.lo_postedCircular)
+        lo_postedCircular.setOnClickListener{
+            val intent = Intent(requireContext(),PostedCircularActivityShow::class.java)
             startActivity(intent)
         }
     }
