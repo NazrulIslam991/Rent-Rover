@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,25 +16,32 @@
         android:theme="@style/Theme.Rent_Rover"
         tools:targetApi="35">
         <activity
-            android:name=".Reset_Password_activity"
-            android:windowSoftInputMode="adjustResize"
+            android:name=".EditProfileActivity"
             android:exported="false" />
+        <activity
+            android:name=".FavoritesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PostedCirucularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PostedCircularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Reset_Password_activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".CircularFormActivity"
             android:exported="false" />
-
-
         <activity
             android:name=".HomeActivity"
-            android:exported="false" >
-        </activity>
-
-
+            android:exported="false" />
         <activity
             android:name=".SignUp_Activity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-       <activity
+        <activity
             android:name=".DetailsActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
@@ -52,12 +59,9 @@
             </intent-filter>
         </activity>
 
-
         <meta-data
             android:name="CLOUDINARY_URL"
             android:value="cloudinary://127214459725141:jl6A5zOHd8BMonsddPzSZCIWNok@dzoadbvof" />
-
-
     </application>
 
 </manifest>
