@@ -72,6 +72,7 @@ class MessagesFragment : Fragment() {
         })
     }
 
+
     private fun showPopupMenu(view: View) {
         val popupMenu = PopupMenu(requireContext(), view)
         popupMenu.menuInflater.inflate(R.menu.chat_menu, popupMenu.menu)
