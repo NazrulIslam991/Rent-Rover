@@ -166,8 +166,8 @@ class Login_Activity : AppCompatActivity() {
                 firebaseAuthWithGoogle(account)
             } catch (e: ApiException) {
                 loadingDialog.dismiss()
-                Log.w("GoogleSignIn", "Google sign-in failed", e)
-                Toast.makeText(this, "Google Sign-In failed", Toast.LENGTH_SHORT).show()
+                Log.w("GoogleSignIn", "ign-in failed", e)
+                Toast.makeText(this, "Sign-In failed", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -186,7 +186,7 @@ class Login_Activity : AppCompatActivity() {
 
                     }
 
-                    Toast.makeText(this, "Google Sign-In successful", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Sign-In successful", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 } else {

@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:background="#3F69BD"
             android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar">
 
 
@@ -30,6 +29,15 @@
                 android:textColor="#fff"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ChatList_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/menu_dot"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="10dp"
+                tools:ignore="ContentDescription" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
