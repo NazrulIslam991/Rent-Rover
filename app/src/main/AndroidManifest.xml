@@ -16,6 +16,15 @@
         android:theme="@style/Theme.Rent_Rover"
         tools:targetApi="35">
         <activity
+            android:name=".PostedCircularDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditCircularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PostedCircularsActivity"
+            android:exported="false" />
+        <activity
             android:name=".PostedCircularActivityShow"
             android:exported="false" />
         <activity
