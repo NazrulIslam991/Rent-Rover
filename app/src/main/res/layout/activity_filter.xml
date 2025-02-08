@@ -1,29 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4F4F4">
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:paddingHorizontal="22dp"
-        android:paddingVertical="20dp"
-        android:background="#00aeef"
-        android:layout_marginBottom="20dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:text="Filter"
-            android:textAlignment="center"
-            />
-    </LinearLayout>
+            android:padding="5dp"
+            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_ic"
+                android:layout_gravity="start"
+                android:layout_marginEnd="20dp"
+                tools:ignore="ContentDescription" />
+
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:text="Unknown Person"
+                android:gravity="center"
+                android:layout_marginEnd="30dp"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -114,49 +134,49 @@
             android:textSize="16sp"
             android:layout_marginBottom="3dp"
             android:textStyle="bold" />
-            <CheckBox
-                android:id="@+id/rb_family"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/lightBlue"
-                android:text="Apparment for family"
-                android:textColor="@color/black"
-                android:elevation="1dp"
-                android:translationX="1dp"
-                android:translationZ="1dp"
-                />
-            <CheckBox
-                android:id="@+id/rb_boysHostel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/lightBlue"
-                android:text="Boys' Hostel"
-                android:textColor="@color/black"
-                />
-            <CheckBox
-                android:id="@+id/rb_girlsHostel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/lightBlue"
-                android:text="Girls' Hostel"
-                android:textColor="@color/black"
-                />
-            <CheckBox
-                android:id="@+id/rb_boysMess"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/lightBlue"
-                android:text="Boys' Mess"
-                android:textColor="@color/black"
-                />
-            <CheckBox
-                android:id="@+id/rb_girlsMess"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/lightBlue"
-                android:text="Girls' Mess"
-                android:textColor="@color/black"
-                />
+        <CheckBox
+            android:id="@+id/rb_family"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lightBlue"
+            android:text="Apparment for family"
+            android:textColor="@color/black"
+            android:elevation="1dp"
+            android:translationX="1dp"
+            android:translationZ="1dp"
+            />
+        <CheckBox
+            android:id="@+id/rb_boysHostel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lightBlue"
+            android:text="Boys' Hostel"
+            android:textColor="@color/black"
+            />
+        <CheckBox
+            android:id="@+id/rb_girlsHostel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lightBlue"
+            android:text="Girls' Hostel"
+            android:textColor="@color/black"
+            />
+        <CheckBox
+            android:id="@+id/rb_boysMess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lightBlue"
+            android:text="Boys' Mess"
+            android:textColor="@color/black"
+            />
+        <CheckBox
+            android:id="@+id/rb_girlsMess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lightBlue"
+            android:text="Girls' Mess"
+            android:textColor="@color/black"
+            />
     </LinearLayout>
 
     <LinearLayout

@@ -68,4 +68,13 @@
         <item>Nabiganj</item>
         <item>Shaistaganj</item>
     </string-array>
+
+    <string name="email_address">example@gmail.com</string>
+    <string name="account_info">Account Info</string>
+    <string name="todo">TODO</string>
+    <string name="not_set">Not set</string>
+    <string name="address">Address</string>
+    <string name="name">Name</string>
+    <string name="email_hints">Email</string>
+    <string name="mobile">Mobile</string>
 </resources>

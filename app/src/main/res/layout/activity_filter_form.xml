@@ -1,513 +1,538 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4F4F4">
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:paddingHorizontal="22dp"
-        android:paddingVertical="20dp"
-        android:background="#00aeef"
+        android:layout_height="wrap_content">
 
-        >
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:text="Filter"
-            android:textAlignment="center"
-            />
-    </LinearLayout>
+            android:padding="5dp"
+            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_ic"
+                android:layout_gravity="start"
+                tools:ignore="ContentDescription" />
+
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="35dp"
+                android:text="Filter Form"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingVertical="15dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/custom_layout"
                 android:elevation="2dp"
-                android:translationZ="2dp"
-                android:translationY="2dp"
-                android:translationX="2dp"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="10dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginBottom="15dp">
+                android:translationX="2dp"
+                android:translationY="2dp"
+                android:translationZ="2dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Division"
+                    android:layout_marginBottom="3dp"
                     android:paddingHorizontal="5dp"
+                    android:text="Division"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <Spinner
                     android:id="@+id/sp_division"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:background="@drawable/spinner_border"
-                    android:padding="13dp"
-                    android:layout_marginBottom="8dp" />
+                    android:padding="13dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="District"
+                    android:layout_marginBottom="3dp"
                     android:paddingHorizontal="5dp"
+                    android:text="District"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <Spinner
                     android:id="@+id/sp_district"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/spinner_border"
-                    android:padding="13dp"
                     android:layout_marginBottom="8dp"
-                    />
+                    android:background="@drawable/spinner_border"
+                    android:padding="13dp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Upazilla"
+                    android:layout_marginBottom="3dp"
                     android:paddingHorizontal="5dp"
+                    android:text="Upazilla"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <Spinner
                     android:id="@+id/sp_upazilla"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/spinner_border"
-                    android:padding="13dp"
                     android:layout_marginBottom="8dp"
-                    />
+                    android:background="@drawable/spinner_border"
+                    android:padding="13dp" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/custom_layout"
                 android:elevation="2dp"
-                android:layout_marginHorizontal="15dp"
-                android:translationZ="2dp"
-                android:translationY="2dp"
-                android:translationX="2dp"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="10dp"
-                android:layout_marginBottom="15dp">
+                android:translationX="2dp"
+                android:translationY="2dp"
+                android:translationZ="2dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Property Type"
+                    android:id="@+id/rg_propertyType"
+                    android:layout_marginBottom="3dp"
                     android:paddingHorizontal="5dp"
+                    android:text="Property Type"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <CheckBox
                     android:id="@+id/rb_family"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
+                    android:elevation="1dp"
                     android:text="Apparment for family"
                     android:textColor="@color/black"
-                    android:elevation="1dp"
                     android:translationX="1dp"
-                    android:translationZ="1dp"
-                    />
+                    android:translationZ="1dp" />
+
                 <CheckBox
                     android:id="@+id/rb_boysHostel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
                     android:text="Boys' Hostel"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black" />
+
                 <CheckBox
                     android:id="@+id/rb_girlsHostel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
                     android:text="Girls' Hostel"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black" />
+
                 <CheckBox
                     android:id="@+id/rb_boysMess"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
                     android:text="Boys' Mess"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black" />
+
                 <CheckBox
                     android:id="@+id/rb_girlsMess"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
                     android:text="Girls' Mess"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/custom_layout"
                 android:elevation="2dp"
-                android:translationZ="2dp"
-                android:translationY="2dp"
-                android:translationX="2dp"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="10dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginBottom="15dp">
+                android:translationX="2dp"
+                android:translationY="2dp"
+                android:translationZ="2dp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bedrooms"
+                    android:layout_marginBottom="3dp"
                     android:paddingHorizontal="5dp"
+                    android:text="Bedrooms"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <RadioGroup
                     android:id="@+id/rg_bedrooms"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@color/white"
-                    >
-                    <CheckBox
+                    android:orientation="horizontal">
+
+                    <RadioButton
                         android:id="@+id/rb_bedroom1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="@color/lightBlue"
                         android:text="1"
-                        android:layout_marginRight="8dp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
+                        android:textColor="@color/black" />
+
+                    <RadioButton
                         android:id="@+id/rb_bedroom2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="@color/lightBlue"
                         android:text="2"
-                        android:layout_marginRight="8dp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
+                        android:textColor="@color/black" />
+
+                    <RadioButton
                         android:id="@+id/rb_bedroom3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="@color/lightBlue"
                         android:text="3"
-                        android:layout_marginRight="8dp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
+                        android:textColor="@color/black" />
+
+                    <RadioButton
                         android:id="@+id/rb_bedroom4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="@color/lightBlue"
                         android:text="4"
-                        android:layout_marginRight="8dp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
+                        android:textColor="@color/black" />
+
+                    <RadioButton
                         android:id="@+id/rb_bedroom5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="@color/lightBlue"
                         android:text="5+"
-                        android:textColor="@color/black"
-                        />
-
+                        android:textColor="@color/black" />
 
                 </RadioGroup>
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/custom_layout"
                 android:elevation="2dp"
-                android:translationZ="2dp"
-                android:translationY="2dp"
-                android:translationX="2dp"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="10dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginBottom="15dp">
+                android:translationX="2dp"
+                android:translationY="2dp"
+                android:translationZ="2dp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bathrooms"
+                    android:layout_marginBottom="3dp"
                     android:paddingHorizontal="5dp"
+                    android:text="Bathrooms"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <RadioGroup
                     android:id="@+id/rg_bathrooms"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <CheckBox
+                    android:orientation="horizontal">
+
+                    <RadioButton
                         android:id="@+id/rb_bathroom1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
                         android:buttonTint="@color/lightBlue"
                         android:text="1"
-                        android:layout_marginRight="8dp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
+                        android:textColor="@color/black" />
+
+                    <RadioButton
                         android:id="@+id/rb_bathroom2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
                         android:buttonTint="@color/lightBlue"
                         android:text="2"
-                        android:layout_marginRight="8dp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
+                        android:textColor="@color/black" />
+
+                    <RadioButton
                         android:id="@+id/rb_bathroom3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
                         android:buttonTint="@color/lightBlue"
                         android:text="3"
-                        android:layout_marginRight="8dp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
+                        android:textColor="@color/black" />
+
+                    <RadioButton
                         android:id="@+id/rb_bathroom4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
                         android:buttonTint="@color/lightBlue"
                         android:text="4"
-                        android:layout_marginRight="8dp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
+                        android:textColor="@color/black" />
+
+                    <RadioButton
                         android:id="@+id/rb_bathroom5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/lightBlue"
                         android:text="5+"
-                        android:textColor="@color/black"
-                        />
+                        android:textColor="@color/black" />
                 </RadioGroup>
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/custom_layout"
                 android:elevation="2dp"
-                android:translationZ="2dp"
-                android:translationY="2dp"
-                android:translationX="2dp"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="10dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginBottom="15dp">
+                android:translationX="2dp"
+                android:translationY="2dp"
+                android:translationZ="2dp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Floor Number"
+                    android:layout_marginBottom="3dp"
                     android:paddingHorizontal="5dp"
+                    android:text="Floor Number"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <Spinner
                     android:id="@+id/sp_floorNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/spinner_border"
-                    android:padding="13dp"
                     android:layout_marginBottom="8dp"
-                    />
+                    android:background="@drawable/spinner_border"
+                    android:padding="13dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/custom_layout"
                 android:elevation="2dp"
-                android:translationZ="2dp"
-                android:translationY="2dp"
-                android:translationX="2dp"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="10dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginBottom="15dp">
+                android:translationX="2dp"
+                android:translationY="2dp"
+                android:translationZ="2dp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Other Facilities"
+                    android:layout_marginBottom="3dp"
                     android:paddingHorizontal="5dp"
+                    android:text="Other Facilities"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <CheckBox
                     android:id="@+id/cb_bikeParking"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
                     android:text="Bike Parking"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black" />
+
                 <CheckBox
                     android:id="@+id/cb_carParking"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
                     android:text="Car Parking"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black" />
+
                 <CheckBox
                     android:id="@+id/cb_gasSupply"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
                     android:text="Gas Supply"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black" />
+
                 <CheckBox
                     android:id="@+id/cb_waterSupply"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
                     android:text="Water Supply"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black" />
+
                 <CheckBox
                     android:id="@+id/cb_furnished"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:buttonTint="@color/lightBlue"
                     android:text="Furnished"
-                    android:textColor="@color/black"
-                    android:background="@color/white"
-                    />
+                    android:textColor="@color/black" />
+
                 <CheckBox
                     android:id="@+id/cb_wifiConnection"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:buttonTint="@color/lightBlue"
                     android:text="Wifi Connection"
-                    android:textColor="@color/black"
-                    android:background="@color/white"
-                    />
+                    android:textColor="@color/black" />
+
                 <CheckBox
                     android:id="@+id/cb_cctv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:buttonTint="@color/lightBlue"
                     android:text="CCTV"
-                    android:textColor="@color/black"
-                    android:background="@color/white"
-                    />
+                    android:textColor="@color/black" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/custom_layout"
                 android:elevation="2dp"
-                android:translationZ="2dp"
-                android:translationY="2dp"
-                android:translationX="2dp"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="10dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginBottom="15dp">
+                android:translationX="2dp"
+                android:translationY="2dp"
+                android:translationZ="2dp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:paddingHorizontal="5dp"
                     android:text="Monthly Rent (BDT)"
-                    android:paddingHorizontal="5dp"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Minimum"
+                    android:layout_marginBottom="3dp"
                     android:paddingHorizontal="5dp"
+                    android:text="Minimum"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_monthlyRentMin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="e.g: 7500.00"
-                    android:textColorHint="#545454"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    android:inputType="number"
-                    android:background="@drawable/custom_button"
-                    android:padding="10dp"
                     android:layout_marginBottom="8dp"
-                    />
+                    android:background="@drawable/custom_button"
+                    android:hint="e.g: 7500.00"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#545454"
+                    android:textSize="16dp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Maximum"
+                    android:layout_marginBottom="3dp"
                     android:paddingHorizontal="5dp"
+                    android:text="Maximum"
                     android:textColor="@color/lightBlue"
                     android:textSize="16sp"
-                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_monthlyRentMax"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="e.g: 7500.00"
-                    android:textColorHint="#545454"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    android:inputType="number"
-                    android:background="@drawable/custom_button"
-                    android:padding="10dp"
                     android:layout_marginBottom="8dp"
-                    />
+                    android:background="@drawable/custom_button"
+                    android:hint="e.g: 7500.00"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#545454"
+                    android:textSize="16dp" />
             </LinearLayout>
+
             <Button
                 android:id="@+id/btn_filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Search"
                 android:layout_marginHorizontal="15dp"
-                android:background="@drawable/custom_button"
                 android:layout_marginVertical="30dp"
-                />
+                android:background="@drawable/custom_button"
+                android:text="Search" />
         </LinearLayout>
     </ScrollView>
 
