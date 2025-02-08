@@ -73,7 +73,7 @@ class HomeActivity : AppCompatActivity() {
         return when (menuId) {
             R.id.home -> HomeFragment()
             R.id.messages -> MessagesFragment()
-            R.id.notification -> NotificationFragment()
+            R.id.favourite -> FavoritesFragment()
             R.id.menu -> MenuFragment()
             else -> HomeFragment()
         }

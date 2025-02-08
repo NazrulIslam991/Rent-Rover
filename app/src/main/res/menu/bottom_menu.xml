@@ -14,9 +14,9 @@
         android:title=""
         android:enabled="false"/>
     <item
-        android:id="@+id/notification"
-        android:title="Notifications"
-        android:icon="@drawable/ic_notification"/>
+        android:id="@+id/favourite"
+        android:title="Favourite"
+        android:icon="@drawable/favourite"/>
     <item
         android:id="@+id/menu"
         android:title="Profile"

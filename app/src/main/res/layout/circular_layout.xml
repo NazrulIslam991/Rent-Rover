@@ -16,10 +16,13 @@
         android:layout_height="200dp"
         android:layout_marginTop="20dp" />
 
+
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="20dp"
+        android:background="#E1E6EF"
         app:tabIndicatorHeight="4dp"
         app:tabIndicatorColor="@color/black"
         android:layout_gravity="center" />
@@ -157,6 +160,7 @@
                 android:textColor="@color/black"
                 android:textSize="15dp"
                 android:layout_gravity="center"/>
+
             <TextView
                 android:id="@+id/tv_monthlyRent"
                 android:layout_width="wrap_content"
@@ -166,6 +170,7 @@
                 android:textSize="15sp"
                 android:layout_marginRight="3dp"
                 android:layout_gravity="center"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -174,7 +179,27 @@
                 android:textSize="15dp"
                 android:layout_gravity="center"/>
 
+            <TextView
+                android:id="@+id/click_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="More Details"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <ImageView
+                android:id="@+id/arrow_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/down_arrow"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="2dp"/>
+
         </LinearLayout>
+
 
 
     </LinearLayout>

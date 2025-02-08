@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 class DetailsActivity : AppCompatActivity() {
+    private lateinit var backButton: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +36,14 @@ class DetailsActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_description).text = rentCircular.description
         findViewById<TextView>(R.id.tv_contact).text = rentCircular.phoneNumber
         findViewById<TextView>(R.id.tv_houseAddress).text = Location
+        findViewById<TextView>(R.id.tv_Upazilla).text = rentCircular.upazila
+        findViewById<TextView>(R.id.tv_district).text = rentCircular.district
+        findViewById<TextView>(R.id.tv_division).text = rentCircular.division
+
 
 
         //when click on call_now, then go to dialer.
-        val callNow = findViewById<ImageButton>(R.id.call_now)
+        val callNow = findViewById<LinearLayout>(R.id.call_now)
         val tvContact = findViewById<TextView>(R.id.tv_contact)
 
         callNow.setOnClickListener {
@@ -45,6 +52,11 @@ class DetailsActivity : AppCompatActivity() {
                 data = Uri.parse("tel:$phoneNumber")
             }
             startActivity(dialIntent)
+        }
+
+        backButton = findViewById(R.id.exit)
+        backButton.setOnClickListener {
+            finish() // Finish activity when back button is clicked
         }
 
         val btnSendMessage = findViewById<Button>(R.id.btn_sendMessage)
