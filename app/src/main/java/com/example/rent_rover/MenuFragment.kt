@@ -15,6 +15,7 @@ class MenuFragment : Fragment() {
     private lateinit var lo_logout: RelativeLayout
     private lateinit var lo_changePassword: RelativeLayout
     private lateinit var lo_postedCircular: RelativeLayout
+    private lateinit var lo_editProfile: RelativeLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,9 +61,17 @@ class MenuFragment : Fragment() {
             startActivity(intent)
         }
 
+
         lo_postedCircular = view.findViewById(R.id.lo_postedCircular)
         lo_postedCircular.setOnClickListener{
             val intent = Intent(requireContext(),PostedCircularActivityShow::class.java)
+            startActivity(intent)
+        }
+
+
+        lo_editProfile = view.findViewById(R.id.lo_editProfile)
+        lo_editProfile.setOnClickListener{
+            val intent = Intent(requireContext(),EditProfileActivity::class.java)
             startActivity(intent)
         }
     }
