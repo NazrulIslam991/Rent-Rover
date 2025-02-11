@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.PopupMenu
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +25,7 @@ class MessagesFragment : Fragment() {
     private val chatList = mutableListOf<ChatListModelClass>()
     private var currentUserID: String? = FirebaseAuth.getInstance().currentUser?.uid
     private lateinit var chatListMenu: ImageView
+    private lateinit var noResultsText: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -35,6 +37,8 @@ class MessagesFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recycler_view_Customer_list)
         recyclerView.layoutManager = LinearLayoutManager(context)
+
+        noResultsText = view.findViewById(R.id.noResultsText)
 
         chatListMenu = view.findViewById(R.id.ChatList_menu)
 
@@ -64,6 +68,12 @@ class MessagesFragment : Fragment() {
                     }
                 }
                 chatListAdapter.notifyDataSetChanged()
+
+                if (chatList.isEmpty()) {
+                    noResultsText.visibility = View.VISIBLE
+                } else {
+                    noResultsText.visibility = View.GONE
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {

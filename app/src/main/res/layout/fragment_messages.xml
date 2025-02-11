@@ -48,5 +48,18 @@
         android:layout_below="@id/bar_layout"
         android:layout_height="match_parent"/>
 
+    <!-- No Results TextView -->
+    <TextView
+        android:id="@+id/noResultsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You currently have no active conversations."
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
 
 </RelativeLayout>

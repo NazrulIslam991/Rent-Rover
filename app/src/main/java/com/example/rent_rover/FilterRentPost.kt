@@ -37,7 +37,7 @@ class FilterRentPost : AppCompatActivity() {
         val bedrooms = intent.getStringExtra("bedrooms") ?: ""
         val bathrooms = intent.getStringExtra("bathrooms") ?: ""
         val minRent = intent.getStringExtra("minRent") ?: "0"
-        val maxRent = intent.getStringExtra("maxRent") ?: "999999999"  // Set a very high max value
+        val maxRent = intent.getStringExtra("maxRent") ?: "999999999"
 
         backButton = findViewById(R.id.exit)
         backButton.setOnClickListener {

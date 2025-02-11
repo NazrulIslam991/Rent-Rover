@@ -6,8 +6,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class ImagePagerAdapter(private val images: List<String>) :
-    RecyclerView.Adapter<ImagePagerAdapter.ImageViewHolder>() {
+class ImagePagerAdapter(private val images: List<String>) : RecyclerView.Adapter<ImagePagerAdapter.ImageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val imageView = ImageView(parent.context)

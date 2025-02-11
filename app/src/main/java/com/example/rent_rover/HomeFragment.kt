@@ -32,10 +32,7 @@ class HomeFragment : Fragment() {
     private val rentCircularRef = database.getReference("Rent_Circular")
     private lateinit var loadingDialog: LoadingDialog
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -55,8 +52,7 @@ class HomeFragment : Fragment() {
 
         // Set status bar color
         requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
-        requireActivity().window.decorView.systemUiVisibility =
-            requireActivity().window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        requireActivity().window.decorView.systemUiVisibility = requireActivity().window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 
         noResultsText = view.findViewById(R.id.noResultsText)
 
