@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:mt_searchBarColor="#DEE0E4"
-            app:mt_navIconEnabled="true"
+            app:mt_navIconEnabled="false"
             app:mt_textColor="@color/black" />
 
         <ImageView

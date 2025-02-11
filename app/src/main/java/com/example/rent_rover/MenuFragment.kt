@@ -63,6 +63,8 @@ class MenuFragment : Fragment() {
             fetchUserData(uid)
         }
 
+
+
         // Logout button click listener
         lo_logout = view.findViewById(R.id.lo_logout)
         lo_logout.setOnClickListener {

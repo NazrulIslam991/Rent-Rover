@@ -158,15 +158,6 @@ class Filter_form : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-//            // Get selected Facilities
-//            val selectedFacilities = mutableListOf<String>()
-//            if (cbBikeParking.isChecked) selectedFacilities.add("Bike Parking")
-//            if (cbCarParking.isChecked) selectedFacilities.add("Car Parking")
-//            if (cbGasSupply.isChecked) selectedFacilities.add("Gas Supply")
-//            if (cbWaterSupply.isChecked) selectedFacilities.add("Water Supply")
-//            if (cbFurnished.isChecked) selectedFacilities.add("Furnished")
-//            if (cbWifiConnection.isChecked) selectedFacilities.add("Wifi Connection")
-//            if (cbCCTV.isChecked) selectedFacilities.add("CCTV")
 
             // Get rent range
             val minRent = min_R.text.toString()
@@ -192,8 +183,6 @@ class Filter_form : AppCompatActivity() {
 
             startActivity(intent)
         }
-
-
 
     }
 
