@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:background="@drawable/custom_layout"
+    android:elevation="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp" />
+
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/delete_ic"
+            android:layout_margin="10dp"
+            android:layout_gravity="end|top"
+            android:contentDescription="Delete" />
+    </FrameLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#E1E6EF"
+        app:tabIndicatorHeight="4dp"
+        app:tabIndicatorColor="@color/black"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:id="@+id/details_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@drawable/rounded_corners_circular_layout_details"
+        android:layout_weight="0.8">
+
+        <TextView
+            android:id="@+id/tv_houseType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Boys' Hostel"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="5dp"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Block D, Road#31, Sahjajal Upashahar, Sylhet"
+            android:textStyle="normal"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"
+            android:textSize="14sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/maximize"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="2dp"
+                />
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="350"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginRight="8dp"
+                />
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/stairs"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="2dp"
+                />
+            <TextView
+                android:id="@+id/sp_floorNo"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginRight="8dp"
+                />
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/bed"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="2dp"
+                />
+            <TextView
+                android:id="@+id/rg_bedrooms"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginRight="8dp"
+                />
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/bathtub"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="2dp"
+                />
+            <TextView
+                android:id="@+id/rg_bathrooms"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textSize="14sp"
+                android:layout_marginRight="8dp"
+                />
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/wifi"
+                android:scaleType="fitCenter"
+                android:textColor="@color/black"
+                android:layout_marginRight="2dp"
+                />
+            <TextView
+                android:id="@+id/cb_wifiConnection"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginRight="8dp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monthly Rent: "
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tv_monthlyRent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7500"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_marginRight="3dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BDT"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/click_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="More Details"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <ImageView
+                android:id="@+id/arrow_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/down_arrow"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="2dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

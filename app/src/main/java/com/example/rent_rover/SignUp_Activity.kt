@@ -100,6 +100,7 @@ class SignUp_Activity : AppCompatActivity() {
         }
     }
 
+
     private fun sendEmailVerification(user: FirebaseUser?, name: String, email: String) {
         user?.sendEmailVerification()?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -116,7 +117,7 @@ class SignUp_Activity : AppCompatActivity() {
                         user.reload().addOnCompleteListener { reloadTask ->
                             if (reloadTask.isSuccessful && user.isEmailVerified) {
                                 loadingDialog.show()
-                                saveUserToDatabase(name, email, user.uid)
+                                saveUserToDatabase(name, email, user.uid,"","")
                                 handler.removeCallbacks(this) // Stop checking
                             } else {
                                 retries++
@@ -140,11 +141,13 @@ class SignUp_Activity : AppCompatActivity() {
     }
 
 
-    private fun saveUserToDatabase(name: String, email: String, uid: String) {
+    private fun saveUserToDatabase(name: String, email: String, uid: String, mobile: String = "", address: String = "") {
         val userMap = hashMapOf(
             "name" to name,
             "email" to email,
-            "uid" to uid
+            "uid" to uid,
+            "mobile" to mobile,
+            "address" to address
         )
 
         FirebaseDatabase.getInstance().getReference("Users").child(uid).setValue(userMap)
