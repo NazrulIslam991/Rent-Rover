@@ -76,6 +76,7 @@ class HomeFragment : Fragment() {
                     filteredList.clear()
                     filteredList.addAll(rentCircularList)
                     rentCircularAdapter.notifyDataSetChanged()
+                    noResultsText.visibility = View.GONE
 
                     // Hide keyboard when search is canceled
                     val inputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -107,7 +108,9 @@ class HomeFragment : Fragment() {
                 rentCircularList.clear()
                 for (dataSnapshot in snapshot.children) {
                     val rentCircular = dataSnapshot.getValue(RentCircular::class.java)
-                    if (rentCircular != null) {
+                    val key = dataSnapshot.key
+                    if (rentCircular != null && key != null) {
+                        rentCircular.key = key
                         rentCircularList.add(rentCircular)
                     }
                 }
@@ -123,6 +126,7 @@ class HomeFragment : Fragment() {
             }
         })
     }
+
 
     private fun filterRentCircular(query: String) {
         filteredList.clear()

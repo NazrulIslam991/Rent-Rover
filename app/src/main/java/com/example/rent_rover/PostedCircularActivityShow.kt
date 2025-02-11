@@ -61,7 +61,7 @@ class PostedCircularActivityShow : AppCompatActivity() {
                 rentCircularList.clear()
 
                 // Get current userId from session
-                val currentUserId = sessionManager.getUserDetails()[SessionManager.USER_ID] ?: ""
+                val currentUserId = sessionManager.getUserId() ?: ""
 
                 for (dataSnapshot in snapshot.children) {
                     val rentCircular = dataSnapshot.getValue(RentCircular::class.java)

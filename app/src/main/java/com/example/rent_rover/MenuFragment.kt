@@ -10,12 +10,27 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import android.content.Context
+import android.content.SharedPreferences
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 class MenuFragment : Fragment() {
+
     private lateinit var lo_logout: RelativeLayout
     private lateinit var lo_changePassword: RelativeLayout
     private lateinit var lo_postedCircular: RelativeLayout
     private lateinit var lo_editProfile: RelativeLayout
+    private lateinit var tvName: TextView
+    private lateinit var tvEmail: TextView
+    private lateinit var loadingDialog: LoadingDialog
+    private lateinit var sessionManager: SessionManager
+
+    private var mobile: String = ""
+    private var address: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,20 +46,22 @@ class MenuFragment : Fragment() {
         activity?.window?.statusBarColor = ContextCompat.getColor(requireActivity(), R.color.p_bg)
         activity?.window?.decorView?.systemUiVisibility = activity?.window?.decorView?.systemUiVisibility ?: 0 or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 
+        // Initialize views
+        tvName = view.findViewById(R.id.tv_name)
+        tvEmail = view.findViewById(R.id.tv_email)
 
-        // Initialize session manager
-        val sessionManager = SessionManager(requireContext())
-        val userDetails = sessionManager.getUserDetails()
+        // Initialize loading dialog
+        loadingDialog = LoadingDialog(requireContext())
 
+        // Initialize SessionManager
+        sessionManager = SessionManager(requireContext())
 
-        // Set user details in TextViews
-        val tvName: TextView = view.findViewById(R.id.tv_name)
-        val tvEmail: TextView = view.findViewById(R.id.tv_email)
-
-        tvName.text = userDetails[SessionManager.USER_NAME] ?: "Guest"
-        tvEmail.text = userDetails[SessionManager.USER_EMAIL] ?: "guest@example.com"
-
-
+        // Fetch user data from Firebase
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+        if (firebaseUser != null) {
+            val uid = firebaseUser.uid
+            fetchUserData(uid)
+        }
 
         // Logout button click listener
         lo_logout = view.findViewById(R.id.lo_logout)
@@ -52,31 +69,62 @@ class MenuFragment : Fragment() {
             showLogoutDialog()
         }
 
-
-
-        // reset password button click listener
+        // Reset password button click listener
         lo_changePassword = view.findViewById(R.id.lo_changePassword)
-        lo_changePassword.setOnClickListener{
+        lo_changePassword.setOnClickListener {
             val intent = Intent(requireContext(), Reset_Password_activity::class.java)
             startActivity(intent)
         }
 
-
+        // Posted circular button click listener
         lo_postedCircular = view.findViewById(R.id.lo_postedCircular)
-        lo_postedCircular.setOnClickListener{
-            val intent = Intent(requireContext(),PostedCircularActivityShow::class.java)
+        lo_postedCircular.setOnClickListener {
+            val intent = Intent(requireContext(), PostedCircularActivityShow::class.java)
             startActivity(intent)
         }
 
-
+        // Edit profile button click listener
         lo_editProfile = view.findViewById(R.id.lo_editProfile)
-        lo_editProfile.setOnClickListener{
-            val intent = Intent(requireContext(),EditProfileActivity::class.java)
+        lo_editProfile.setOnClickListener {
+            val intent = Intent(requireContext(), EditProfileActivity::class.java)
+            // Pass the user data
+            intent.putExtra("name", tvName.text.toString())
+            intent.putExtra("email", tvEmail.text.toString())
+            intent.putExtra("mobile", mobile)  // Pass mobile
+            intent.putExtra("address", address) // Pass address
             startActivity(intent)
         }
     }
 
+    // Fetch user data from Firebase and listen for updates
+    private fun fetchUserData(uid: String) {
+        loadingDialog.show()
 
+        val databaseRef = FirebaseDatabase.getInstance().getReference("Users").child(uid)
+        databaseRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                loadingDialog.dismiss()
+
+                if (snapshot.exists()) {
+                    val name = snapshot.child("name").value.toString()
+                    val email = snapshot.child("email").value.toString()
+                    mobile = snapshot.child("mobile").value.toString() // Fetch mobile
+                    address = snapshot.child("address").value.toString() // Fetch address
+
+                    // Set user details in TextViews
+                    tvName.text = name
+                    tvEmail.text = email
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                loadingDialog.dismiss()
+
+            }
+        })
+    }
+
+    // Show logout dialog
     private fun showLogoutDialog() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Logout")
@@ -95,15 +143,22 @@ class MenuFragment : Fragment() {
         alertDialog.show()
     }
 
-
-
+    // Logout user and navigate to login screen
     private fun logoutUser() {
-        val sessionManager = SessionManager(requireContext())
-        sessionManager.logoutUser()
+        try {
+            // Clear session
+            sessionManager.logoutUser()
 
-        // Navigate to login screen
-        val intent = Intent(requireContext(), Login_Activity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
+            // Firebase logout
+            FirebaseAuth.getInstance().signOut()
+
+            // Navigate to login screen
+            val intent = Intent(activity?.applicationContext, Login_Activity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }

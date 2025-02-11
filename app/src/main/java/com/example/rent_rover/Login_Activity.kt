@@ -131,7 +131,7 @@ class Login_Activity : AppCompatActivity() {
                         val user = firebaseAuth.currentUser
                         val sessionManager = SessionManager(this)
                         user?.let {
-                            sessionManager.createLoginSession(it.uid, it.email ?: "", it.displayName ?: "")
+                            sessionManager.createLoginSession(it.uid)
                         }
 
                         Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
@@ -181,9 +181,20 @@ class Login_Activity : AppCompatActivity() {
                     val user = firebaseAuth.currentUser
                     val sessionManager = SessionManager(this)
                     user?.let {
-                        sessionManager.createLoginSession(it.uid, it.email ?: "", it.displayName ?: "")
-                        saveUserDetailsToDatabase(it.uid, it.displayName, it.email)
+                        sessionManager.createLoginSession(it.uid)
 
+                        // Check if user exists in the database before saving
+                        val database = FirebaseDatabase.getInstance()
+                        val usersRef = database.getReference("Users").child(it.uid)
+
+                        usersRef.get().addOnSuccessListener { snapshot ->
+                            if (!snapshot.exists()) {
+                                // If user does not exist, save details
+                                saveUserDetailsToDatabase(it.uid, it.displayName, it.email, "", "")
+                            }
+                        }.addOnFailureListener { exception ->
+                            Log.e("DatabaseCheck", "Failed to check user existence", exception)
+                        }
                     }
 
                     Toast.makeText(this, "Sign-In successful", Toast.LENGTH_SHORT).show()
@@ -197,25 +208,31 @@ class Login_Activity : AppCompatActivity() {
 
 
 
-    private fun saveUserDetailsToDatabase(uid: String?, name: String?, email: String?) {
+
+
+    private fun saveUserDetailsToDatabase(uid: String?, name: String?, email: String?, mobile: String = "", address: String = "") {
         val database = FirebaseDatabase.getInstance()
         val usersRef = database.getReference("Users")
+
         val user = mapOf(
             "name" to name,
             "email" to email,
-            "uid" to uid
+            "uid" to uid,
+            "mobile" to mobile,
+            "address" to address
         )
 
         uid?.let {
             usersRef.child(it).setValue(user).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Log.d("RealtimeDatabase", "Successfully")
+                    Log.d("RealtimeDatabase", "User details successfully saved")
                 } else {
                     Log.w("RealtimeDatabase", "Failed to save user details", task.exception)
                 }
             }
         }
     }
+
 
 
 

@@ -528,7 +528,7 @@ class CircularFormActivity : AppCompatActivity() {
 
         // Get the current user's ID from SessionManager
         val sessionManager = SessionManager(this)
-        val userId = sessionManager.getUserDetails()[SessionManager.USER_ID] ?: ""
+        val userId = sessionManager.getUserId() ?: ""
 
         val circularData = mapOf(
             "propertyType" to propertyType,
