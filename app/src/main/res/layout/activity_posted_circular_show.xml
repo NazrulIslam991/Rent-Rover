@@ -14,8 +14,8 @@
         android:id="@+id/searchbar_layout"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginBottom="10dp">
 
         <ImageView
@@ -36,7 +36,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:mt_searchBarColor="#DEE0E4"
-            app:mt_navIconEnabled="true"
             app:mt_textColor="@color/black" />
 
 
