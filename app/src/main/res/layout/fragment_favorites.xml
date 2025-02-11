@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:paddingTop="15dp"
-    tools:context=".HomeFragment">
+    tools:context=".FavoritesFragment">
 
     <!-- Material Search Bar -->
     <LinearLayout
@@ -31,14 +31,7 @@
             app:mt_navIconEnabled="true"
             app:mt_textColor="@color/black" />
 
-        <ImageView
-            android:id="@+id/filterIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="8dp"
-            android:src="@drawable/filter"
-            android:contentDescription="Filter"
-            android:layout_marginStart="8dp"/>
+
     </LinearLayout>
 
     <!-- RecyclerView -->

@@ -1,22 +1,26 @@
 package com.example.rent_rover
 
 import android.content.Intent
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
-class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : RecyclerView.Adapter<RentCircularAdapter.RentCircularViewHolder>() {
+class FavoritesRentC_Adapter(
+    private val rentCircularList: MutableList<RentCircular>,
+    private val onDeleteClick: (String) -> Unit
+) : RecyclerView.Adapter<FavoritesRentC_Adapter.RentCircularViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RentCircularViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.circular_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.circular_favourite_layout, parent, false)
         return RentCircularViewHolder(view)
     }
 
@@ -48,8 +52,13 @@ class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : Re
             context.startActivity(intent)
         }
 
+        // Handle delete icon click
+        holder.deleteIcon.setOnClickListener {
+            rentCircular.key?.let {
+                onDeleteClick(it)
+            }
+        }
     }
-
 
     override fun getItemCount(): Int {
         return rentCircularList.size
@@ -66,6 +75,7 @@ class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : Re
 
         val viewPager: ViewPager2 = itemView.findViewById(R.id.viewPager)
         val tabLayout: TabLayout = itemView.findViewById(R.id.tabLayout)
+        val deleteIcon: ImageView = itemView.findViewById(R.id.delete_icon)
     }
 
     private fun addOrdinalSuffix(numberString: String): String {
@@ -83,6 +93,4 @@ class RentCircularAdapter(private val rentCircularList: List<RentCircular>) : Re
             numberString
         }
     }
-
 }
-

@@ -2,534 +2,874 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:background="#F8F9FA">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="20dp">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_layout"
-        android:elevation="2dp"
-        android:padding="10dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="12dp">
-
-        <ImageButton
-            android:id="@+id/exit"
-            android:layout_width="wrap_content"
-            android:layout_height="13dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="307dp"
-            android:background="@color/white"
-            android:src="@drawable/back_ic" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Post Details"
-            android:textAlignment="center"
-            android:textColor="@color/lightBlue"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-
-    </RelativeLayout>
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp" />
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabIndicatorHeight="4dp"
-        app:tabIndicatorColor="@color/black"
-        android:layout_gravity="center" />
-
-    <TextView
-        android:id="@+id/tv_houseType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        android:text="Boys' Hostel"
-        android:textStyle="bold"
-        android:layout_marginBottom="4dp"
-        />
-    <TextView
-        android:id="@+id/tv_houseAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:text="Block D, Road#31, Sahjajal Upashahar, Sylhet"
-        android:textStyle="normal"
-        android:layout_marginBottom="4dp"
-        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <TextView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_layout"
+            android:elevation="2dp"
+            android:padding="10dp"
+            android:layout_marginBottom="12dp">
+
+            <ImageButton
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:src="@drawable/back_ic"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Post Details"
+                android:textAlignment="center"
+                android:textColor="@color/lightBlue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorHeight="5dp"
+            android:background="#E1E6EF"
+            app:tabIndicatorColor="@color/black"
+            android:layout_gravity="center" />
+
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Monthly Rent: "
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_monthlyRent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="7500"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BDT"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:layout_gravity="center"/>
+            android:layout_margin="30dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp">
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
+        </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Floor Area: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_area"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="7500"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sqrmtr"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Bedrooms: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_bedroom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Bathrooms: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_bathroom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Floor Level: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_floor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Kitchens: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_kitchen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Religion: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            />
-        <TextView
-            android:id="@+id/tv_religion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Muslim, Hindu"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Other Facilities "
-        android:textStyle="bold"
-        android:orientation="vertical"
-        android:layout_marginBottom="7dp"
-        android:textColor="@color/black"
-        android:textSize="19dp"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:text="Bike Parking: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_bikeParking"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yes"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:text="Car Parking: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_carParking"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:text="Gas Supply: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_gasSupply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yes"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:text="Water Supply: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_waterSupply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yes"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:text="Furnished: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_furnished"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:text="CCTV: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_CCTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yes"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:text="Wifi: "
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_wifi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yes"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="25dp"
-        android:padding="0dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:textStyle="bold"
-            android:layout_marginBottom="4dp"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            />
-        <TextView
-            android:id="@+id/tv_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="lorem"
-            android:justificationMode="inter_word"
-            android:textStyle="normal"
-            android:layout_marginBottom="0dp"
-            android:textColor="@color/black"
-            android:textSize="17dp"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="25dp"
-        android:padding="0dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Contact"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
+            <!-- Header -->
             <TextView
-                android:id="@+id/tv_contact"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
-                android:text="01742568923"
-                android:justificationMode="inter_word"
-                android:textStyle="normal"
-                android:textColor="@color/black"
-                android:textSize="17dp"
-                />
-
-            <ImageButton
+                android:id="@+id/tv_houseType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/call_now"
-                android:src="@drawable/call_now"
-                />
+                android:text="Sublet Flat"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"
+                android:textColor="#000" />
+
+            <!-- Location -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_location"
+                    android:paddingEnd="4dp" />
+
+                <TextView
+                    android:id="@+id/tv_houseAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mudda Manda, Badda, Dhaka"
+                    android:textSize="14sp"
+                    android:textColor="#666" />
+            </LinearLayout>
+
+            <!-- Features (Icons) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="25dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="4dp"
+                    android:gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/custom_layout3"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_height="50dp"
+                        android:layout_width="50dp"
+                        android:id="@+id/batroom_image"
+                        android:layout_gravity="center"
+                        android:src="@drawable/bathtub"
+                        android:layout_alignParentTop="true"
+                        android:scaleType="fitCenter"
+                        android:layout_centerHorizontal="true">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/tv_bathroom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 Bath"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:background="@drawable/custom_layout3"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_height="50dp"
+                        android:layout_width="50dp"
+                        android:id="@+id/bedroom_inage"
+                        android:layout_gravity="center"
+                        android:src="@drawable/bed"
+                        android:layout_alignParentTop="true"
+                        android:scaleType="fitCenter"
+                        android:layout_centerHorizontal="true">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/tv_bedroom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 Bed"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/custom_layout3"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_height="50dp"
+                        android:layout_width="50dp"
+                        android:id="@+id/kitchen_inage"
+                        android:layout_gravity="center"
+                        android:src="@drawable/kitchen_ic"
+                        android:layout_alignParentTop="true"
+                        android:scaleType="fitCenter"
+                        android:layout_centerHorizontal="true">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/tv_kitchen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 Kitchen"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#000" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/custom_layout3"
+                android:layout_marginEnd="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Price Information"
+                    android:textColor="@color/lightBlue"
+                    android:textSize="16sp"
+                    android:padding="5dp"
+                    android:textStyle="bold" />
+
+                <!-- Linear Layout for Price & Period Information -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <!-- Row for Price -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Price: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_monthlyRent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="end"
+                            android:text="7500 BDT"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                    <!-- Row for Period -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="#F0F6F3"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Period: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:layout_marginEnd="15dp"
+                            android:text="Monthly"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- Location Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/custom_layout3"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Location Information"
+                    android:textColor="@color/lightBlue"
+                    android:textSize="16sp"
+                    android:padding="5dp"
+                    android:textStyle="bold" />
+
+                <!-- Linear Layout for Location Information -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <!-- Row for Upozila -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Upazilla: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_Upazilla"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="end"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                    <!-- Row for District -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="#F0F6F3"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="District: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_district"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="end"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                    <!-- Row for Division -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Division: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_division"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="end"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/custom_layout3"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Basic Information"
+                    android:textColor="@color/lightBlue"
+                    android:textSize="16sp"
+                    android:padding="5dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <!-- Row for Floor area -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Floor area: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_floor_area"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="end"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                    <!-- Row for Floor level -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="#F0F6F3"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Floor level: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_floor"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:layout_marginEnd="15dp"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                    <!-- Row for Religion -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Religion: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_religion"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:layout_marginEnd="15dp"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="#F0F6F3"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Bike Parking: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_bikeParking"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:layout_marginEnd="15dp"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Car Parking: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_carParking"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:layout_marginEnd="15dp"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="#F0F6F3"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Gas Supply: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_gasSupply"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:layout_marginEnd="15dp"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Water Supply: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_waterSupply"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="xyz"
+                            android:layout_marginEnd="15dp"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="#F0F6F3"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Furnished: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_furnished"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:layout_marginEnd="15dp"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="CCTV: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_CCTV"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="end"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="#F0F6F3"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Wifi: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/tv_wifi"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="end"
+                            android:text="xyz"
+                            android:textSize="14sp"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/custom_layout3"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Information"
+                    android:textColor="@color/lightBlue"
+                    android:textSize="16sp"
+                    android:padding="5dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/white"
+                    android:padding="5dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Phone Number Text -->
+                    <TextView
+                        android:id="@+id/tv_contact"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="01800000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#000" />
+
+                    <!-- Call Button: Image + Text Inside LinearLayout -->
+                    <LinearLayout
+                        android:id="@+id/call_now"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_button"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/call"
+                            android:contentDescription="Call Icon"
+                            android:layout_marginEnd="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Call"
+                            android:textColor="#000"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/custom_layout3"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textColor="@color/lightBlue"
+                    android:textSize="16sp"
+                    android:padding="5dp"
+                    android:textStyle="bold" />
+
+
+
+                <!-- Linear Layout for description Information -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/tv_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Description: "
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="25dp">
+
+                <Button
+                    android:id="@+id/btn_sendMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:text="Send Message"
+                    android:drawableLeft="@drawable/send"
+                    android:layout_marginEnd="8dp"/>
+
+                <Button
+                    android:id="@+id/btn_favourite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="14dp"
+                    android:text="Favourite"
+                    android:drawableLeft="@drawable/favourite"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+
 
         </LinearLayout>
 
+
+
     </LinearLayout>
-    <Button
-        android:id="@+id/btn_sendMessage"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Send Meassage"
-        android:drawableLeft="@drawable/send"
-        />
-
-
-</LinearLayout>
-
 
 </ScrollView>

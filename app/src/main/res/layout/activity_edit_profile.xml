@@ -1,0 +1,322 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:background="@color/p_bg"
+    tools:context=".EditProfileActivity">
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <com.google.android.material.appbar.AppBarLayout
+          android:id="@+id/bar_layout"
+          android:layout_width="match_parent"
+          android:background="@color/p_bg"
+          android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+
+          <ImageView
+              android:id="@+id/back"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/back_ic"
+              android:layout_gravity="start"
+              android:layout_marginEnd="20dp"
+              tools:ignore="ContentDescription" />
+
+
+          <TextView
+              android:id="@+id/username"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginStart="15dp"
+              android:text="Edit Profile"
+              android:gravity="center"
+              android:layout_marginEnd="30dp"
+              android:textColor="#fff"
+              android:textSize="18sp"
+              android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+
+      </com.google.android.material.appbar.AppBarLayout>
+
+      <RelativeLayout
+          android:id="@+id/image_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="10dp">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_pic"
+            app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+        <TextView
+            android:id="@+id/user_email_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/image_profile"
+            android:layout_marginTop="8dp"
+            android:textColor="#F13F5A"
+            android:text="@string/email_address"
+            android:textSize="21sp" />
+      </RelativeLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="@drawable/profile_bg"
+          android:orientation="vertical"
+          android:paddingHorizontal="20dp"
+          android:paddingVertical="35dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_info"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp" />
+
+        <!-- User Info Cards -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            android:background="@drawable/white_background">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:padding="8dp"
+              android:gravity="center">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_user"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/todo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/name"
+                  android:textStyle="bold"
+                  android:textSize="15sp"
+                  android:textColor="@color/black"
+                  android:layout_marginBottom="5dp" />
+
+              <EditText
+                  android:id="@+id/user_name"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textColor="@color/blue"
+                  android:hint="@string/not_set"
+                  android:textStyle="italic"
+                  android:textSize="15sp"
+                  android:layout_marginBottom="2dp" />
+            </LinearLayout>
+
+          </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            android:background="@drawable/white_background">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:padding="8dp"
+              android:gravity="center">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/email_ic"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/todo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/email_hints"
+                  android:textStyle="bold"
+                  android:textColor="@color/black"
+                  android:textSize="15sp"
+                  android:layout_marginBottom="5dp" />
+
+              <TextView
+                  android:id="@+id/user_email"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textStyle="italic"
+                  android:textSize="15sp"
+                  android:textColor="@color/blue"
+                  android:hint="@string/email_address"
+                  android:layout_marginBottom="2dp" />
+            </LinearLayout>
+
+          </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            android:background="@drawable/white_background">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:padding="10dp"
+              android:gravity="center">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_phone"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/todo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/mobile"
+                  android:textStyle="bold"
+                  android:textColor="@color/black"
+                  android:textSize="15sp"
+                  android:layout_marginBottom="5dp" />
+
+              <EditText
+                  android:id="@+id/user_mobile"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/not_set"
+                  android:textSize="15sp"
+                  android:textColor="@color/blue"
+                  android:textStyle="italic"
+                  android:layout_marginBottom="2dp" />
+            </LinearLayout>
+
+          </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            android:background="@drawable/white_background">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:padding="8dp"
+              android:gravity="center">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_location"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/todo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/address"
+                  android:textStyle="bold"
+                  android:textColor="@color/black"
+                  android:textSize="15sp"
+                  android:layout_marginBottom="5dp" />
+
+              <EditText
+                  android:id="@+id/user_address"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/not_set"
+                  android:textColor="@color/blue"
+                  android:textStyle="italic"
+                  android:textSize="15sp"
+                  android:layout_marginBottom="2dp" />
+            </LinearLayout>
+
+          </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:background="@drawable/custom_button"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
+
+
+      </LinearLayout>
+
+
+    </LinearLayout>
+
+  </ScrollView>
+
+</RelativeLayout>

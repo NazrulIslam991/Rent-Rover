@@ -10,13 +10,25 @@
     android:layout_marginBottom="10dp"
     android:layout_height="wrap_content">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp" />
+        android:layout_height="wrap_content">
 
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp" />
 
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/delete_ic"
+            android:layout_margin="10dp"
+            android:layout_gravity="end|top"
+            android:contentDescription="Delete" />
+    </FrameLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -26,8 +38,6 @@
         app:tabIndicatorHeight="4dp"
         app:tabIndicatorColor="@color/black"
         android:layout_gravity="center" />
-
-
 
     <LinearLayout
         android:id="@+id/details_layout"
@@ -200,11 +210,6 @@
 
         </LinearLayout>
 
-
-
     </LinearLayout>
-
-
-
 
 </LinearLayout>
