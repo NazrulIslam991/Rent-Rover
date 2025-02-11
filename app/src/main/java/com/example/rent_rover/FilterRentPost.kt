@@ -1,6 +1,9 @@
 package com.example.rent_rover
 
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +14,7 @@ class FilterRentPost : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var rentCircularAdapter: RentCircularAdapter
+    private lateinit var backButton: ImageView
     private lateinit var rentCircularList: MutableList<RentCircular>
     private val database = FirebaseDatabase.getInstance().getReference("Rent_Circular")
 
@@ -34,6 +38,11 @@ class FilterRentPost : AppCompatActivity() {
         val bathrooms = intent.getStringExtra("bathrooms") ?: ""
         val minRent = intent.getStringExtra("minRent") ?: "0"
         val maxRent = intent.getStringExtra("maxRent") ?: "999999999"  // Set a very high max value
+
+        backButton = findViewById(R.id.exit)
+        backButton.setOnClickListener {
+            finish() // Finish activity when back button is clicked
+        }
 
         // Fetch filtered data
         fetchFilteredData(division, district, upazila, floorNo, bedrooms, bathrooms, minRent, maxRent)
@@ -71,8 +80,13 @@ class FilterRentPost : AppCompatActivity() {
                     }
                 }
 
+                val noResultsText = findViewById<TextView>(R.id.noResultsText)
                 if (rentCircularList.isEmpty()) {
-                    Toast.makeText(this@FilterRentPost, "No results found", Toast.LENGTH_SHORT).show()
+                    noResultsText.visibility = View.VISIBLE
+                    recyclerView.visibility = View.GONE
+                } else {
+                    noResultsText.visibility = View.GONE
+                    recyclerView.visibility = View.VISIBLE
                 }
 
                 rentCircularAdapter.notifyDataSetChanged()
