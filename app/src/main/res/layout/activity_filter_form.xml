@@ -164,6 +164,7 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
                     android:text="Boys' Hostel"
+                    android:visibility="gone"
                     android:textColor="@color/black" />
 
                 <CheckBox
@@ -172,6 +173,7 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/lightBlue"
                     android:text="Girls' Hostel"
+                    android:visibility="gone"
                     android:textColor="@color/black" />
 
                 <CheckBox
@@ -495,7 +497,7 @@
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/custom_button"
                     android:hint="e.g: 7500.00"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="#545454"
@@ -518,7 +520,7 @@
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/custom_button"
                     android:hint="e.g: 7500.00"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="#545454"

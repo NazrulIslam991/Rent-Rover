@@ -240,6 +240,7 @@
                     android:buttonTint="@color/lightBlue"
                     android:text="Boys' Hostel"
                     android:textColor="@color/black"
+                    android:visibility="gone"
                     />
                 <RadioButton
                     android:id="@+id/rb_girlsHostel"
@@ -248,6 +249,7 @@
                     android:buttonTint="@color/lightBlue"
                     android:text="Girls' Hostel"
                     android:textColor="@color/black"
+                    android:visibility="gone"
                     />
                 <RadioButton
                     android:id="@+id/rb_boysMess"
@@ -755,7 +757,7 @@
                 android:textColorHint="#545454"
                 android:textColor="@color/black"
                 android:textSize="16dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:background="@drawable/custom_button"
                 android:padding="10dp"
                 android:layout_marginBottom="8dp"
