@@ -66,6 +66,7 @@ class PostedCircularActivityShow : AppCompatActivity() {
                 for (dataSnapshot in snapshot.children) {
                     val rentCircular = dataSnapshot.getValue(RentCircular::class.java)
                     if (rentCircular != null && rentCircular.userId == currentUserId) {
+                        rentCircular.key = dataSnapshot.key // Assign the unique key
                         rentCircularList.add(rentCircular)
                     }
                 }
@@ -88,5 +89,6 @@ class PostedCircularActivityShow : AppCompatActivity() {
             }
         })
     }
+
 
 }
