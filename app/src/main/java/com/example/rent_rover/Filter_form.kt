@@ -226,7 +226,7 @@ class Filter_form : AppCompatActivity() {
 
     // Method to set up the floor number spinner
     private fun setupFloorNoSpinner() {
-        val floorNumbers = (1..50).map { "$it Floor" }.toTypedArray()
+        val floorNumbers = (0..50).map { "$it Floor" }.toTypedArray()
         val floorNoAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, floorNumbers)
         floorNoAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice)
         spFloorNo.adapter = floorNoAdapter
