@@ -63,13 +63,15 @@ class PostedCircularDetailActivity : AppCompatActivity() {
             finish() // Finish activity when back button is clicked
         }
 
-        val btnSendMessage = findViewById<Button>(R.id.btn_edit)
-        btnSendMessage.setOnClickListener {
-
-                val intent = Intent(this, EditCircularActivity::class.java)
-                intent.putExtra("USER_ID", rentCircular.userId)
-                startActivity(intent)
+        val editButton = findViewById<Button>(R.id.btn_edit)
+        editButton.setOnClickListener {
+            val intent = Intent(this, EditCircularActivity::class.java)
+            intent.putExtra("RENT_CIRCULAR", rentCircular)
+            intent.putExtra("RENT_CIRCULAR_KEY", rentCircular.key)
+            startActivity(intent)
         }
+
+
 
 
         //add favourite
@@ -82,28 +84,31 @@ class PostedCircularDetailActivity : AppCompatActivity() {
 
                 // Check if the current user is the same as the user who posted the rent circular
                 if (currentUser.uid == rentCircular.userId) {
-                    Toast.makeText(this, "You cannot add your own listing to favorites", Toast.LENGTH_SHORT).show()
-                } else {
                     if (rentCircularKey != null) {
-                        val databaseReference = FirebaseDatabase.getInstance().getReference("Favorites")
+                        val databaseReference = FirebaseDatabase.getInstance().getReference("Rent_Circular")
 
-                        val userFavoritesRef = databaseReference.child(currentUser.uid)
-
-                        userFavoritesRef.child(rentCircularKey).setValue(rentCircularKey)
+                        // Remove the rent circular from the database
+                        databaseReference.child(rentCircularKey).removeValue()
                             .addOnSuccessListener {
-                                Toast.makeText(this, "Added to favorites", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Rent circular deleted successfully", Toast.LENGTH_SHORT).show()
+                                finish() // Close the activity after deletion
                             }
                             .addOnFailureListener { exception ->
-                                Toast.makeText(this, "Failed to add to favorites: ${exception.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Failed to delete rent circular: ${exception.message}", Toast.LENGTH_SHORT).show()
                             }
                     } else {
                         Toast.makeText(this, "Error: No key found for the rent circular", Toast.LENGTH_SHORT).show()
                     }
+                } else {
+                    Toast.makeText(this, "You can only delete your own listings", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "You need to be logged in to add to favorites", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "You need to be logged in to delete a rent circular", Toast.LENGTH_SHORT).show()
             }
         }
+
+
+
 
 
         // Set up image slider and tab layout as in the adapter

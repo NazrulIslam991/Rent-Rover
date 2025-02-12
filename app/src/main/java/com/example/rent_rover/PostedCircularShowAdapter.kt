@@ -29,7 +29,6 @@ class PostedCircularShowAdapter(private val rentCircularList: List<RentCircular>
         val wifiConnection = if (rentCircular.facilities.contains("Wifi Connection")) "Yes" else "No"
         holder.cbWifiConnection.text = wifiConnection
 
-
         val imageUrls = rentCircular.images
         if (imageUrls.isNotEmpty()) {
             val imageAdapter = ImagePagerAdapter(imageUrls)
@@ -38,14 +37,15 @@ class PostedCircularShowAdapter(private val rentCircularList: List<RentCircular>
             TabLayoutMediator(holder.tabLayout, holder.viewPager) { tab, position -> }.attach()
         }
 
+        // Pass the rentCircular object with the unique key
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, PostedCircularDetailActivity::class.java)
             intent.putExtra("RENT_CIRCULAR", rentCircular)
             context.startActivity(intent)
-
         }
     }
+
 
     override fun getItemCount(): Int {
         return rentCircularList.size
