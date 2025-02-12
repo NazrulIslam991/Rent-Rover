@@ -38,14 +38,13 @@ class PostedCircularShowAdapter(private val rentCircularList: List<RentCircular>
             TabLayoutMediator(holder.tabLayout, holder.viewPager) { tab, position -> }.attach()
         }
 
-        // Handle click on the entire item
-//        holder.itemView.setOnClickListener {
-//            val context = holder.itemView.context
-//            val intent = Intent(context, DetailsActivity::class.java)
-//            intent.putExtra("RENT_CIRCULAR", rentCircular)
-//            context.startActivity(intent)
-//
-//        }
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, PostedCircularDetailActivity::class.java)
+            intent.putExtra("RENT_CIRCULAR", rentCircular)
+            context.startActivity(intent)
+
+        }
     }
 
     override fun getItemCount(): Int {
