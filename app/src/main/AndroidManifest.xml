@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -14,7 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rent_Rover"
-        tools:targetApi="35" >
+        tools:targetApi="35">
+        <activity
+            android:name=".EditCircularActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PostedCircularDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".EditProfileActivity"
             android:exported="false" />
@@ -23,9 +29,6 @@
             android:exported="false" />
         <activity
             android:name=".PostedCircularDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EditCircularActivity"
             android:exported="false" />
         <activity
             android:name=".PostedCircularsActivity"
@@ -66,7 +69,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
